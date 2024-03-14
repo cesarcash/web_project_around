@@ -10,8 +10,6 @@
     border-radius: 50%;    
     overflow: hidden;
     margin-bottom: 14px;
-    border: 1px solid red;
-    
 }
 
 .user__photo {
@@ -21,7 +19,6 @@
 
 .user__data {
     text-align: center;
-    border: 1px solid green;
     margin-bottom: 36px;
 }
 
@@ -46,14 +43,14 @@
 }
 
 .user__action {
-    border: 1px solid pink;
+    width: 100%;
 }
 
 @media screen and (min-width: 1280px){
 
     .user {
         flex-direction: row;
-        padding: 40px 0px 60px;
+        padding: 40px 0px 50px;
 
     }
 
@@ -71,11 +68,16 @@
     }
 
     .user__name-profile {
+        font-size: 42px;
+        margin-bottom: 15px;
+    }
 
+    .user__name-description {
+        font-size: 18px;
     }
 
     .user__action {
-        margin-left: auto;
+        flex: 1;
     }
 
 }
