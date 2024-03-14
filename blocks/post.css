@@ -1,10 +1,18 @@
 .post {
-    max-width: 282px;
-    /* border: 1px solid red; */
-    background-color: #fff;
-    margin: auto;
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: auto;
+    grid-gap: 20px;
+    justify-content: center;
+    padding: 0 19px;
+}
+
+.post__item {
+    /* margin: auto; */
+    border: 3px solid blue;
     border-radius: 10px;
     overflow: hidden;
+    max-width: 282px;
 }
 
 .post__image-container {
@@ -18,13 +26,17 @@
 
 .post__description {
     display: flex;
-    border: 1px solid red;
-    
+    background-color: #fff;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 21px;
 }
 
 .post__name {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
     color: #000;
     font-family: 'Inter Black';
     font-size: 24px;
-
 }
