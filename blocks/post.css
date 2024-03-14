@@ -1,0 +1,30 @@
+.post {
+    max-width: 282px;
+    /* border: 1px solid red; */
+    background-color: #fff;
+    margin: auto;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.post__image-container {
+
+}
+
+.post__image {
+    width: 100%;
+    display: block
+}
+
+.post__description {
+    display: flex;
+    border: 1px solid red;
+    
+}
+
+.post__name {
+    color: #000;
+    font-family: 'Inter Black';
+    font-size: 24px;
+
+}
