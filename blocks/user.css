@@ -25,6 +25,7 @@
 .user__data-row {
     display: flex;
     gap: 12px;
+    align-items: center;
 }
 
 .user__name-profile {
@@ -32,11 +33,10 @@
     font-family: 'Inter Medium';
     font-size: 22px;
     font-weight: 500;
-    margin-bottom: 14px;
 }
 
 .user__name-description {
-    margin: 0;
+    margin: 14px 0 0 0;
     font-family: 'Inter Regular';
     font-size: 14px;
     font-weight: 400;    
@@ -69,10 +69,10 @@
 
     .user__name-profile {
         font-size: 42px;
-        margin-bottom: 15px;
     }
 
     .user__name-description {
+        margin-top: 15px;
         font-size: 18px;
     }
 
