@@ -9,9 +9,7 @@
     max-width: 120px;
     border-radius: 50%;    
     overflow: hidden;
-    margin-bottom: 14px;
-    border: 1px solid green;
-    
+    margin-bottom: 14px;    
 }
 
 .user__photo {
@@ -21,17 +19,13 @@
 
 .user__data {
     text-align: center;
-    margin-bottom: 36px;
-    border: 1px solid blue;
-    
+    margin-bottom: 36px;    
 }
 
 .user__data-row {
     display: flex;
     gap: 12px;
     align-items: center;
-    border: 1px dashed #fff;
-    
 }
 
 .user__name-profile {

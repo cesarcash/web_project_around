@@ -31,6 +31,30 @@
     margin: auto;
 }
 
+.button__delete {
+    display: none;
+}
+
+.button__delete-image {
+    display: block;
+}
+
+.button__like-image {
+    display: block;
+}
+
+@media screen and (min-width: 768px){
+
+    .button__delete {
+        display: block;
+        position: absolute;
+        top: 18px;
+        right: 15px;
+        z-index: 1;
+    }
+
+}
+
 @media screen and (min-width: 1280px){
     .button__add {
         width: 154px;
