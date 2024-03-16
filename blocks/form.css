@@ -1,0 +1,40 @@
+.form {
+    box-sizing: border-box;
+}
+
+.form__title {
+    margin: 0 0 76px 0;
+    font-family: 'Inter Black';
+    font-size: 18px;
+}
+
+.form__input {
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+    color: #c4c4c4;
+    font-family: 'Inter Regular';
+    font-size: 14px;
+    display: block;
+    width: 100%;
+    margin: 0 0 30px 0;
+    padding: 0 0 9px 0;
+}
+
+.form__button {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 14px 0;
+    margin-top: 16px;
+    background-color: rgba(0, 0, 0, 1);
+    font-family: 'Inter Regular';
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.form__button:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+

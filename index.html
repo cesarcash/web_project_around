@@ -10,11 +10,16 @@
 <body>
     <div class="popup">
         <div class="popup__container">
-            <button class="button button__close" aria-label="Cerrar ventana">
+            <button id="button__close" class="button button__close" aria-label="Cerrar ventana">
                 <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
             </button>
             <div class="popup__content">
-                
+                <form id="form" name="form" class="form">
+                    <h3 class="form__title">Nuevo lugar</h3>
+                    <input type="text" class="form__input" name="title" id="title" required placeholder="Título">
+                    <input type="url" class="form__input" name="url" id="url" required placeholder="Enclace a la imagen">
+                    <button type="submit" class="form__button" aria-label="Crear">Crear</button>
+                </form>
             </div>
         </div>
     </div>
@@ -30,14 +35,14 @@
                 <div class="user__data">
                     <div class="user__data-row">
                         <h1 class="user__name-profile">César Salazar</h1>
-                        <button id="" class="button button__edit" aria-label="Editar perfil">
+                        <button id="button__edit" class="button button__edit" aria-label="Editar perfil">
                             <img src="./images/icon__edit.svg" alt="Editar perfil" class="button__edit-image">
                         </button>
                     </div>
                     <p class="user__name-description">Fotográfo</p>
                 </div>
                 <div class="user__action">
-                    <button id="" class="button button__add" aria-label="Añadir post">
+                    <button id="button__add" class="button button__add" aria-label="Añadir post">
                         <img src="./images/add.png" alt="Añadir post" class="button__add-image">
                     </button>
                 </div>
