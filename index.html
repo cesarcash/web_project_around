@@ -8,17 +8,23 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
-    <div class="popup">
+    <div class="popup" id="popup">
         <div class="popup__container">
             <button id="button__close" class="button button__close" aria-label="Cerrar ventana">
                 <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
             </button>
-            <div class="popup__content">
-                <form id="form" name="form" class="form">
+            <div class="popup__content" id="popupContent">
+                <form id="formNewPost" name="form" class="form">
                     <h3 class="form__title">Nuevo lugar</h3>
                     <input type="text" class="form__input" name="title" id="title" required placeholder="Título">
-                    <input type="url" class="form__input" name="url" id="url" required placeholder="Enclace a la imagen">
+                    <input type="url" class="form__input" name="url" id="url" required placeholder="Enlace a la imagen">
                     <button type="submit" class="form__button" aria-label="Crear">Crear</button>
+                </form>
+                <form id="formEditProfile" name="form" class="form">
+                    <h3 class="form__title">Editar perfil</h3>
+                    <input type="text" class="form__input" name="nameProfile" id="nameProfile" required placeholder="Nombre">
+                    <input type="text" class="form__input" name="aboutMe" id="aboutMe" required placeholder="Acerca de mi">
+                    <button type="submit" class="form__button" aria-label="Guardar">Guardar</button>
                 </form>
             </div>
         </div>
@@ -34,12 +40,12 @@
                 </div>
                 <div class="user__data">
                     <div class="user__data-row">
-                        <h1 class="user__name-profile">César Salazar</h1>
+                        <h1 class="user__name-profile" id="userName">César Salazar</h1>
                         <button id="button__edit" class="button button__edit" aria-label="Editar perfil">
                             <img src="./images/icon__edit.svg" alt="Editar perfil" class="button__edit-image">
                         </button>
                     </div>
-                    <p class="user__name-description">Fotográfo</p>
+                    <p class="user__name-description" id="userDescription">Fotográfo</p>
                 </div>
                 <div class="user__action">
                     <button id="button__add" class="button button__add" aria-label="Añadir post">
@@ -50,86 +56,74 @@
             <main class="post">
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
                         <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
                     </div>
                     <div class="post__description">
                         <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
-                        <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
+                        <img src="./images/gallery__image7.jpg" alt="La Habana, Cuba" class="post__image">
                     </div>
                     <div class="post__description">
-                        <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <h2 class="post__name">La Habana, Cuba</h2>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
-                        <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
+                        <img src="./images/gallery_image5.jpg" alt="Chiapas" class="post__image">
                     </div>
                     <div class="post__description">
-                        <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <h2 class="post__name">Chiapas</h2>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
-                        <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
+                        <img src="./images/gallery_image2.JPG" alt="Eliminar post" class="post__image">
                     </div>
                     <div class="post__description">
-                        <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <h2 class="post__name">Cartagena, Colombia</h2>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
-                        <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
+                        <img src="./images/gallery__image3.jpg" alt="Eliminar post" class="post__image">
                     </div>
                     <div class="post__description">
-                        <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <h2 class="post__name">Oaxaca</h2>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
                 <section class="post__item">
                     <div class="post__image-container">
-                        <button id="buttonDelete" class="button button__delete" aria-label="Eliminar post">
+                        <button class="button button__delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
                         </button>
-                        <img src="./images/gallery__image1.jpg" alt="Eliminar post" class="post__image">
+                        <img src="./images/gallery__image4.jpg" alt="Eliminar post" class="post__image">
                     </div>
                     <div class="post__description">
-                        <h2 class="post__name">Puerto progreso, Yucatán</h2>
-                        <button id="buttonLike" class="button button__like" aria-label="Me gusta">
-                            <img src="./images/icon__like.svg" alt="Me gusta" class="button__like-image">
-                        </button>
+                        <h2 class="post__name">Colonia, Uruguay</h2>
+                        <button class="button button__like" aria-label="Me gusta"></button>
                     </div>
                 </section>
             </main>

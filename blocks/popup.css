@@ -22,3 +22,12 @@
     box-sizing: border-box;
 }
 
+.popup_opened {
+    display: flex;
+}
+
+@media screen and (min-width: 768px){
+    .popup__container{
+        width: 430px;
+    }
+}

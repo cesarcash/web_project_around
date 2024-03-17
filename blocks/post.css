@@ -17,6 +17,7 @@
 .post__image-container {
     position: relative;
     width: 100%;
+    overflow: hidden;
 }
 
 .post__image-container::before {
@@ -33,6 +34,11 @@
     top: 0;
     left: 0;
     z-index: 0;
+    transition: .3s ease-in all;
+}
+
+.post__image:hover {
+    transform: scale(1.1);
 }
 
 .post__description {
@@ -50,13 +56,11 @@
     font-family: 'Inter Black';
     font-size: 24px;
     margin: 0;
+    width: 210px;
 }
 
 @media screen and (min-width: 1280px) {
     .post {
-        padding: 0;
-        display: grid;
         grid-template-columns: repeat(3,minmax(282px,1fr));
-        gap: 18px;
     }
 }

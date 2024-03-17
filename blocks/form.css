@@ -1,5 +1,6 @@
 .form {
     box-sizing: border-box;
+    display: none;
 }
 
 .form__title {
