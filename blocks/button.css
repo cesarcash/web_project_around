@@ -5,7 +5,7 @@
     padding: 0;
 }
 
-.button__type-edit:hover {
+.button__type_edit:hover {
     opacity: .5;
 }
 
@@ -13,7 +13,7 @@
     display: block;
 }
 
-.button__type-add {
+.button__type_add {
     max-width: 282px;
     width: 100%;
     height: 50px;
@@ -25,7 +25,7 @@
     box-sizing: border-box;
 }
 
-.button__type-add:hover {
+.button__type_add:hover {
     opacity: .5;
 }
 
@@ -34,7 +34,7 @@
     margin: auto;
 }
 
-.button__type-delete {
+.button__type_delete {
     display: none;
 }
 
@@ -46,7 +46,7 @@
     opacity: .5;
 }
 
-.button__type-like {
+.button__type_like {
     width: 21px;
     height: 19px;
     background-image: url('../images/icon__like.svg');
@@ -55,16 +55,16 @@
     background-clip: padding-box;
 }
 
-.button__type-like:hover {
+.button__type_like:hover {
     opacity: .5;
 }
 
-.button__type-like:active {
+.button__type_like:active {
     opacity: 1;
     background-image: url('../images/icon__like-active.svg');
 }
 
-.button__type-close {
+.button__type_close {
     position: absolute;
     z-index: 2;
     top: -40px;
@@ -78,7 +78,7 @@
 }
 @media screen and (min-width: 768px){
 
-    .button__type-delete {
+    .button__type_delete {
         display: block;
         position: absolute;
         top: 18px;
@@ -90,7 +90,7 @@
 
 @media screen and (min-width: 1280px){
 
-    .button__type-add {
+    .button__type_add {
         width: 154px;
     }
     .button__edit-image {
