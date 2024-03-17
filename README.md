@@ -4,7 +4,7 @@ Proyecto Web Around
 
 # Descripción del proyecto
 
-Diseño FrontEnd de aplicación web, donde muestra fotorgrafías de lugares visitados del autor 
+Diseño FrontEnd de aplicación web, donde muestra fotorgrafías de lugares diversos.
 
 # Descripción de las tecnologías y técnicas utilizadas
 
