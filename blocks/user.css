@@ -7,7 +7,7 @@
 
 .user__picture {
     max-width: 120px;
-    border-radius: 50%;    
+    border-radius: 50%;
     overflow: hidden;
     margin-bottom: 14px;    
 }
@@ -70,7 +70,7 @@
 
     .user__name-profile {
         font-size: 42px;
-        line-height: 56px
+        line-height: 56px;
     }
 
     .user__name-description {
