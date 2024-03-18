@@ -47,6 +47,5 @@ function sendFormProfile(e){
     userDescription.textContent = newAbout;
 
     closeModal();
-    alert('Datos guardados');
 
 }
