@@ -59,8 +59,8 @@
                     </button>
                 </div>
             </div>
-            <main class="post">
-                <section class="post__item">
+            <main class="post" id="post">
+                <!-- <section class="post__item">
                     <div class="post__image-container">
                         <button class="button button_action_delete" aria-label="Eliminar post">
                             <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
@@ -131,13 +131,27 @@
                         <h2 class="post__name">Colonia, Uruguay</h2>
                         <button class="button button_action_like" aria-label="Me gusta"></button>
                     </div>
-                </section>
+                </section> -->
             </main>
             <footer class="footer">
                 <p class="footer__author">&copy; 2024 @cesarcash</p>
             </footer>
         </div>
     </div>
+    <template id="postTemplate">
+        <section class="post__item">
+            <div class="post__image-container">
+                <button class="button button_action_delete" aria-label="Eliminar post">
+                    <img src="./images/icon__delete.svg" alt="Eliminar post" class="button__delete-image">
+                </button>
+                <img class="post__image" >
+            </div>
+            <div class="post__description">
+                <h2 class="post__name"></h2>
+                <button class="button button_action_like" aria-label="Me gusta"></button>
+            </div>
+        </section>
+    </template>
     <script src="./scripts/scripts.js"></script>
 </body>
 </html>
