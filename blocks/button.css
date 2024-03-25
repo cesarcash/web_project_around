@@ -64,6 +64,10 @@
     background-image: url('../images/icon__like-active.svg');
 }
 
+.button_is_active {
+    background-image: url('../images/icon__like-active.svg');
+}
+
 .button_action_close {
     position: absolute;
     z-index: 2;
