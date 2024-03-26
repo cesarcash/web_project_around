@@ -8,7 +8,15 @@
     align-items: center;
 }
 
-.popup__container {
+.popup__image {
+    position: relative;
+}
+
+.popup__view_image {
+    width: 100%;
+}
+
+.popup__form {
     position: relative;
     width: 282px;
 }
@@ -22,12 +30,18 @@
     box-sizing: border-box;
 }
 
+.popup__text {
+    color: #fff;
+    font-family: 'Inter Regular';
+    font-size: 12px;
+}
+
 .popup_opened {
     display: flex;
 }
 
 @media screen and (min-width: 768px){
-    .popup__container{
+    .popup__form{
         width: 430px;
     }
 }

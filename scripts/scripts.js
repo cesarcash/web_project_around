@@ -1,8 +1,10 @@
 const btnEdit = document.querySelector('#button__edit');
 const btnAdd = document.querySelector('#button__add');
 const btnLike = document.querySelectorAll('.button__like');
-const btnClose = document.querySelector('#button__close');
+const btnClose = document.querySelectorAll('.button_action_close');
 const modal = document.querySelector('#popup');
+const modalForm = document.querySelector('.popup__form');
+const modalImage = document.querySelector('.popup__image');
 const formPost = document.querySelector('#formNewPost');
 const formProfile = document.querySelector('#formEditProfile');
 const userName = document.querySelector('#userName');
@@ -42,6 +44,10 @@ initialCards.forEach((card) => {
   addPost(card.name,card.link);
 })
 
+btnClose.forEach(buttonClose => {
+  buttonClose.addEventListener('click', closeModal)
+})
+
 formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
 postContainer.addEventListener('click', function(e){
@@ -52,25 +58,48 @@ postContainer.addEventListener('click', function(e){
     buttonAction.classList.toggle('button_is_active');
   }else if(buttonAction.classList.contains('button_action_delete')){
     deletePost(buttonAction)
+  }else if(buttonAction.classList.contains('post__image')){
+    const image = e.target;
+    showImage(image);
   }
 
 });
-// window.addEventListener('load', function(){
-  
-//   const btnLikes = document.querySelectorAll('.button_action_like');
-  
-//   btnLikes.forEach((button) => {
-//     button.addEventListener('click',handlePostLike)    
-//   })
 
-// })
+btnEdit.addEventListener('click', function(){
+  handleOpenModal();
+  modalImage.style.display = 'none';
+  modalForm.style.display = 'block';
+  formProfile.style.display = 'block';
+  document.querySelector('#nameProfile').value = userName.textContent;
+  document.querySelector('#aboutMe').value = userDescription.textContent;
+})
+
+btnAdd.addEventListener('click', function(){
+  handleOpenModal();
+  modalImage.style.display = 'none';
+  modalForm.style.display = 'block';
+  formPost.style.display = 'block';
+})
+
+function showImage(image){
+
+  handleOpenModal();
+  modalForm.style.display = 'none';
+  modalImage.style.display = 'block';
+
+  const imgView = modalImage.querySelector('#popupImage');
+  imgView.setAttribute('src',image.src);
+  imgView.setAttribute('alt',image.alt);
+
+  const textView = modalImage.querySelector('.popup__text');
+  textView.textContent = image.alt;
+
+}
 
 function deletePost(itemButton){
 
   const postItem = itemButton.closest('.post__item');
   postItem.remove();
-  
-  
 
 }
 
@@ -102,22 +131,6 @@ function addPost(name,url){
   postContainer.prepend(postElement);
 
 }
-
-btnClose.addEventListener('click', () => {
-    closeModal()
-})
-
-btnEdit.addEventListener('click', function(){
-    handleOpenModal();
-    formProfile.style.display = 'block';
-    document.querySelector('#nameProfile').value = userName.textContent;
-    document.querySelector('#aboutMe').value = userDescription.textContent;
-})
-
-btnAdd.addEventListener('click', function(){
-    handleOpenModal();
-    formPost.style.display = 'block';
-})
 
 function handleOpenModal(){
     modal.classList.add('popup_opened');
