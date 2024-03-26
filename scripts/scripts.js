@@ -44,19 +44,34 @@ initialCards.forEach((card) => {
 
 formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
-window.addEventListener('load', function(){
-  
-  const btnLikes = document.querySelectorAll('.button_action_like');
-  
-  btnLikes.forEach((button) => {
-    button.addEventListener('click',handlePostLike)    
-  })
+postContainer.addEventListener('click', function(e){
 
-})
+  const buttonAction = e.target;
+  
+  if(buttonAction.classList.contains('button_action_like')){
+    buttonAction.classList.toggle('button_is_active');
+  }else if(buttonAction.classList.contains('button_action_delete')){
+    deletePost(buttonAction)
+  }
 
-function handlePostLike(e){
-  const btnLiked = e.target;
-  btnLiked.classList.toggle('button_is_active');
+});
+// window.addEventListener('load', function(){
+  
+//   const btnLikes = document.querySelectorAll('.button_action_like');
+  
+//   btnLikes.forEach((button) => {
+//     button.addEventListener('click',handlePostLike)    
+//   })
+
+// })
+
+function deletePost(itemButton){
+
+  const postItem = itemButton.closest('.post__item');
+  postItem.remove();
+  
+  
+
 }
 
 function createNewPost(evt){

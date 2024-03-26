@@ -36,13 +36,15 @@
 
 .button_action_delete {
     display: none;
+    width: 18px;
+    height: 19px;
+    background-image: url('../images/icon__delete.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
 }
 
-.button__delete-image {
-    display: block;
-}
-
-.button__delete-image:hover {
+.button_action_delete:hover {
     opacity: .5;
 }
 
