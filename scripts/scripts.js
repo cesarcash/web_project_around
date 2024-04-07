@@ -48,6 +48,25 @@ btnClose.forEach(buttonClose => {
   buttonClose.addEventListener('click', closeModal)
 })
 
+window.addEventListener("click", function(evt) {
+  
+  const element = evt.target;
+
+  if(element.classList.contains('popup_opened')){
+    closeModal();
+  }
+  
+})
+
+document.addEventListener('keydown', function(evt){
+
+  const keyUser = evt.key;
+  if(keyUser === 'Escape' && modal.classList.contains('popup_opened')){
+    closeModal();
+  }
+  
+})
+
 formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
 postContainer.addEventListener('click', function(e){
