@@ -1,3 +1,14 @@
+import enableValidation from "./validate.js";
+
+const config = {
+  formSelector: ".form",
+  inputSelector: ".form__input",
+  submitButtonSelector: ".form__button",
+  inactiveButtonClass: "form__button_inactive",
+  inputErrorClass: "form__input_type_error",
+  errorClass: "form__input-error_active"
+}
+
 const btnEdit = document.querySelector('#button__edit');
 const btnAdd = document.querySelector('#button__add');
 const btnLike = document.querySelectorAll('.button__like');
@@ -176,3 +187,5 @@ function closeModal(){
   formPost.style.display = 'none';
   modal.classList.remove('popup_opened')
 }
+
+enableValidation(config)
