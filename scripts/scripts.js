@@ -157,21 +157,21 @@ function closeModal(){
 
 /** FORMS **/
 
-const showInputError = (formElement, inputElement, errorMessage) => { //ACTIVA ERROR
+const showInputError = (formElement, inputElement, errorMessage) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.add("form__input_type_error");
   errorElement.textContent = errorMessage;
   errorElement.classList.add("form__input-error_active");
 };
 
-const hideInputError = (formElement, inputElement) => { //DESACTIVA ERROR
+const hideInputError = (formElement, inputElement) => {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove("form__input_type_error");
   errorElement.classList.remove("form__input-error_active");
   errorElement.textContent = "";
 };
 
-const checkInputValidity = (formElement, inputElement) => { //VALIDA INFORMACION INGRESADA
+const checkInputValidity = (formElement, inputElement) => {
   if (!inputElement.validity.valid) {
     showInputError(formElement, inputElement, inputElement.validationMessage);
   } else {
@@ -179,22 +179,21 @@ const checkInputValidity = (formElement, inputElement) => { //VALIDA INFORMACION
   }
 };
 
-const hasInvalidInput = (inputList) => { //FALSO O VERDADERO
+const hasInvalidInput = (inputList) => {
   return inputList.some((inputElement) => {
     return !inputElement.validity.valid;
   });
 };
 
-const toggleButtonState = (inputList, buttonElement) => { //ACTIVA O DESHABILITA BOTON
-  console.log(hasInvalidInput(inputList));
+const toggleButtonState = (inputList, buttonElement) => { 
   if (hasInvalidInput(inputList)) {
-    buttonElement.classList.add("button_inactive");
+    buttonElement.classList.add("form__button_inactive");
   } else {
-    buttonElement.classList.remove("button_inactive");
+    buttonElement.classList.remove("form__button_inactive");
   }
 };
 
-const setEventListeners = (formElement) => { //AÑADE ESCUCHA DE EVENTOS
+const setEventListeners = (formElement) => { 
   const inputList = Array.from(formElement.querySelectorAll(".form__input"));
   const buttonElement = formElement.querySelector('.form__button');
   toggleButtonState(inputList,buttonElement);
@@ -215,11 +214,6 @@ const enableValidation = () => {
 
     setEventListeners(formElement);
 
-    // const fieldsetList = Array.from(formElement.querySelectorAll(".form__set")); // AÑADE LOS DIFERENTES FIELDSET
-
-    // fieldsetList.forEach((fieldset) => {
-    //   setEventListeners(fieldset);
-    // });
   });
 };
 
