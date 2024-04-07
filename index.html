@@ -35,8 +35,10 @@
                 </form>
                 <form id="formEditProfile" name="form" class="form">
                     <h3 class="form__title">Editar perfil</h3>
-                    <input type="text" class="form__input" name="nameProfile" id="nameProfile" required placeholder="Nombre">
-                    <input type="text" class="form__input" name="aboutMe" id="aboutMe" required placeholder="Acerca de mi">
+                    <input type="text" class="form__input" name="nameProfile" id="nameProfile" required placeholder="Nombre" minlength="2" maxlength="40">
+                    <span class="form__input-error name-input-error"></span>
+                    <input type="text" class="form__input" name="aboutMe" id="aboutMe" required placeholder="Acerca de mi" minlength="2" maxlength="200">
+                    <span class="form__input-error about-input-error"></span>
                     <button type="submit" class="form__button" aria-label="Guardar">Guardar</button>
                 </form>
             </div>
