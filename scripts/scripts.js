@@ -10,8 +10,8 @@ const formProfile = document.querySelector('#formEditProfile');
 const userName = document.querySelector('#userName');
 const userDescription = document.querySelector('#userDescription');
 const postContainer = document.querySelector('#post');
-const txtTitle = document.querySelector('#title');
-const txtUrl = document.querySelector('#url');
+const txtTitle = document.querySelector('#title-input');
+const txtUrl = document.querySelector('#url-input');
 
 const initialCards = [
   {
@@ -70,8 +70,8 @@ btnEdit.addEventListener('click', function(){
   modalImage.style.display = 'none';
   modalForm.style.display = 'block';
   formProfile.style.display = 'block';
-  document.querySelector('#nameProfile').value = userName.textContent;
-  document.querySelector('#aboutMe').value = userDescription.textContent;
+  document.querySelector('#name-input').value = userName.textContent;
+  document.querySelector('#about-input').value = userDescription.textContent;
 })
 
 btnAdd.addEventListener('click', function(){
@@ -139,8 +139,8 @@ function handleOpenModal(){
 function sendFormProfile(e){
 
     e.preventDefault();
-    const newName = document.querySelector('#nameProfile').value;
-    const newAbout = document.querySelector('#aboutMe').value;
+    const newName = document.querySelector('#name-input').value;
+    const newAbout = document.querySelector('#about-input').value;
 
     userName.textContent = newName;
     userDescription.textContent = newAbout;
