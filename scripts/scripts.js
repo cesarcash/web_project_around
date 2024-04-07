@@ -58,14 +58,17 @@ window.addEventListener("click", function(evt) {
   
 })
 
-document.addEventListener('keydown', function(evt){
+document.addEventListener('keydown', keyScape)
+
+function keyScape(evt){
 
   const keyUser = evt.key;
   if(keyUser === 'Escape' && modal.classList.contains('popup_opened')){
     closeModal();
+    evt.target.removeEventListener('keydown', keyScape);
   }
-  
-})
+
+}
 
 formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
