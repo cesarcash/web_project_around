@@ -11,7 +11,6 @@ const config = {
 
 const btnEdit = document.querySelector('#button__edit');
 const btnAdd = document.querySelector('#button__add');
-const btnLike = document.querySelectorAll('.button__like');
 const btnClose = document.querySelectorAll('.button_action_close');
 const modal = document.querySelector('#popup');
 const modalForm = document.querySelector('.popup__form');
@@ -105,6 +104,7 @@ btnEdit.addEventListener('click', function(){
   formProfile.style.display = 'block';
   document.querySelector('#name-input').value = userName.textContent;
   document.querySelector('#about-input').value = userDescription.textContent;
+  enableValidation(config)
 })
 
 btnAdd.addEventListener('click', function(){
@@ -112,6 +112,7 @@ btnAdd.addEventListener('click', function(){
   modalImage.style.display = 'none';
   modalForm.style.display = 'block';
   formPost.style.display = 'block';
+  enableValidation(config)
 })
 
 function showImage(image){
@@ -166,19 +167,19 @@ function addPost(name,url){
 }
 
 function handleOpenModal(){
-    modal.classList.add('popup_opened');
+  modal.classList.add('popup_opened');
 }
 
 function sendFormProfile(e){
 
-    e.preventDefault();
-    const newName = document.querySelector('#name-input').value;
-    const newAbout = document.querySelector('#about-input').value;
+  e.preventDefault();
+  const newName = document.querySelector('#name-input').value;
+  const newAbout = document.querySelector('#about-input').value;
 
-    userName.textContent = newName;
-    userDescription.textContent = newAbout;
+  userName.textContent = newName;
+  userDescription.textContent = newAbout;
 
-    closeModal();
+  closeModal();
 
 }
 
