@@ -17,9 +17,14 @@ export default class Card {
         })
 
         this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
-            const button = e.target;
-            button.closest('.post__item').remove();
+            this._handleDeleteCard(e)
         })
+
+    }
+
+    _handleDeleteCard(e){
+
+        e.target.closest('.post__item').remove();
 
     }
 
@@ -27,6 +32,13 @@ export default class Card {
 
         this._element.querySelector('.button_action_like').classList.toggle('button_is_active');
 
+    }
+
+    _openModal(){
+
+    }
+    _closeModal(){
+        
     }
 
     generateCard(){
