@@ -1,3 +1,5 @@
+// import { showImage } from "./utils.js";
+
 export default class Card {
 
     constructor(data,cardSelector){
@@ -23,15 +25,11 @@ export default class Card {
     }
 
     _handleDeleteCard(e){
-
         e.target.closest('.post__item').remove();
-
     }
 
     _handleLikeClick(){
-
         this._element.querySelector('.button_action_like').classList.toggle('button_is_active');
-
     }
 
     generateCard(){

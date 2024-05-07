@@ -1,5 +1,5 @@
-import Card from "./Card.js";
-// import {initialCards as cardData} from "./utils.js";
+
+import {createCard} from "./utils.js";
 
 const postContainer = document.querySelector('#post');
 
@@ -31,7 +31,5 @@ const initialCards = [
 ];
 
 initialCards.forEach(data => {
-    const newCard = new Card(data,'#postTemplate');
-    const card = newCard.generateCard();
-    postContainer.append(card);
+    createCard(data,'#postTemplate',postContainer);
 })

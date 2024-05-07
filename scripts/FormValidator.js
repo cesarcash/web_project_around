@@ -2,38 +2,36 @@ export default class FormValidator {
 
     constructor(config,form){
 
-        this._formSelector = config.formSelector;
-        this._inputSelector = config.inputSelector;
-        this._submitButtonSelector = config.submitButtonSelector;
-        this._inactiveButtonClass = config.inactiveButtonClass;
-        this._inputErrorClass = config.inputErrorClass;
-        this._errorClass = config.errorClass;
+        // this._inputSelector = config.inputSelector;
+        // this._submitButtonSelector = config.submitButtonSelector;
+        // this._inactiveButtonClass = config.inactiveButtonClass;
+        // this._inputErrorClass = config.inputErrorClass;
+        // this._errorClass = config.errorClass;
+
+        this._config = config;
         this._form = form;
 
     }
 
-    _showInputError(errorMessage){
-
-        this._errorElement = this._form.querySelector(`.${this._inputSelector.id}-error`);
-        this._inputSelector.classList.add(this._inputErrorClass);
-        this._errorElement.textContent = this._inputSelector.validationMessage;
-        this._errorElement.classList.add(this._errorClass);
-
-
+    _showInputError(formElement, inputElement, errorMessage, objConfig){
+        const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.add(objConfig.inputErrorClass);
+        errorElement.textContent = errorMessage;
+        errorElement.classList.add(objConfig.errorClass);
     }
 
-    _hideInputError(){
-        this._errorElement = this._form.querySelector(`.${this._inputSelector.id}-error`);
-        this._inputSelector.classList.remove(this._inputErrorClass);
-        this._errorElement.classList.remove(this._errorClass);
-        this._errorElement.textContent = "";
+    _hideInputError(formElement, inputElement, objConfig){
+        const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
+        inputElement.classList.remove(objConfig.inputErrorClass);
+        errorElement.classList.remove(objConfig.errorClass);
+        errorElement.textContent = "";
     }
 
-    _checkInputValidity(){
-        if (!this._inputSelector.validity.valid) {
-            this._showInputError();
+    _checkInputValidity(formElement, inputElement, objConfig){
+        if (!inputElement.validity.valid) {
+            this._showInputError(formElement, inputElement, inputElement.validationMessage, objConfig);
         } else {
-            this._hideInputError();
+            this._hideInputError(formElement, inputElement, objConfig);
         }
     }
 
@@ -43,17 +41,17 @@ export default class FormValidator {
         });
     }
 
-    _toggleButtonState(inputList, buttonElement){
+    _toggleButtonState(inputList, buttonElement, objConfig){
         if(this._hasInvalidInput(inputList)){
-            buttonElement.classList.add(this._inactiveButtonClass);
+            buttonElement.classList.add(objConfig.inactiveButtonClass);
         }else{
-            buttonElement.classList.remove(this._inactiveButtonClass);
+            buttonElement.classList.remove(objConfig.inactiveButtonClass);
         }
     }
 
     _setEventListeners(){
         this._inputList = Array.from(this._form.querySelectorAll(this._inputSelector));
-        this._buttonElement = 
+        // this._buttonElement = 
     }
 
     enableValidation(){
