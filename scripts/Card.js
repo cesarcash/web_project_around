@@ -34,13 +34,6 @@ export default class Card {
 
     }
 
-    _openModal(){
-
-    }
-    _closeModal(){
-        
-    }
-
     generateCard(){
 
         this._element = this._getTemplate();
