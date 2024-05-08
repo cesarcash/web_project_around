@@ -1,5 +1,9 @@
 
 import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, validateProfile, validatePost} from "./utils.js";
+import FormValidator from './FormValidator.js';
+
+const validateProfile = new FormValidator(config,formProfile);
+const validatePost = new FormValidator(config,formPost);
 
 document.addEventListener('keydown', keyScape)
 

@@ -1,5 +1,4 @@
 import Card from "./Card.js";
-import FormValidator from './FormValidator.js';
 
 export const modal = document.querySelector('#popup');
 export const modalImage = document.querySelector('.popup__image');
@@ -21,9 +20,6 @@ export const config = {
     inputErrorClass: "form__input_type_error",
     errorClass: "form__input-error_active"
 }
-
-export const validateProfile = new FormValidator(config,formProfile);
-export const validatePost = new FormValidator(config,formPost);
 
 export const initialCards = [
     {

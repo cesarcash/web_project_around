@@ -32,7 +32,6 @@ export default class Card {
             
             const textView = modalImage.querySelector('.popup__text');
             textView.textContent = this._name;
-            console.log("🚀 ~ Card ~ this._element.querySelector ~ modalImage:", modalImage)
         })
 
     }
@@ -50,6 +49,7 @@ export default class Card {
         this._element = this._getTemplate();
         this._setEventListeners();
         this._element.querySelector('.post__image').setAttribute('src',this._link);
+        this._element.querySelector('.post__image').setAttribute('alt',this._name);
         this._element.querySelector('.post__name').textContent = this._name;
         return this._element;
 
