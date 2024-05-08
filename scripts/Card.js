@@ -1,4 +1,4 @@
-// import { showImage } from "./utils.js";
+import { modalImage, handleOpenModal } from "./utils.js";
 
 export default class Card {
 
@@ -20,6 +20,19 @@ export default class Card {
 
         this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
             this._handleDeleteCard(e)
+        })
+
+        this._element.querySelector('.post__image').addEventListener('click', (e) => {
+
+            handleOpenModal(modalImage)
+
+            const imgView = modalImage.querySelector('#popupImage');
+            imgView.setAttribute('src',this._link);
+            imgView.setAttribute('alt',this._name);
+            
+            const textView = modalImage.querySelector('.popup__text');
+            textView.textContent = this._name;
+            console.log("🚀 ~ Card ~ this._element.querySelector ~ modalImage:", modalImage)
         })
 
     }

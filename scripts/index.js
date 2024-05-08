@@ -1,35 +1,46 @@
 
-import {createCard} from "./utils.js";
+// import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, validation, config } from "./utils.js";
+import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, validateProfile, validatePost} from "./utils.js";
+// import enableValidation from './FormValidator.js';
 
-const postContainer = document.querySelector('#post');
+document.addEventListener('keydown', keyScape)
 
-const initialCards = [
-    {
-      name: "Puerto progreso, Yucatán",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image1.jpg"
-    },
-    {
-      name: "La Habana, Cuba",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image7.jpg"
-    },
-    {
-      name: "Chiapas",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery_image5.jpg"
-    },
-    {
-      name: "Cartagena, Colombia",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery_image2.JPG"
-    },
-    {
-      name: "Oaxaca",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image3.jpg"
-    },
-    {
-      name: "Colonia, Uruguay",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image4.jpg"
-    }
-];
+window.addEventListener("click", function(evt) {
+  
+  const element = evt.target;
 
-initialCards.forEach(data => {
+  if(element.classList.contains('popup_opened')){
+    closeModal();
+  }
+  
+})
+
+btnClose.forEach(buttonClose => {
+  buttonClose.addEventListener('click', closeModal)
+})
+
+dataCard.forEach(data => {
     createCard(data,'#postTemplate',postContainer);
 })
+
+formProfile.addEventListener('submit',sendFormProfile);
+formPost.addEventListener('submit', createNewPost);
+
+btnEdit.addEventListener('click', function(){
+  handleOpenModal(modalForm);
+  formProfile.style.display = 'block';
+  document.querySelector('#name-input').value = userName.textContent;
+  document.querySelector('#about-input').value = userDescription.textContent;
+  // enableValidation(config)
+  // validation(formProfile,config)
+})
+
+btnAdd.addEventListener('click', function(){
+  handleOpenModal(modalForm);
+  formPost.style.display = 'block';
+  // enableValidation(config)
+  // validation(formPost,config)
+})
+
+validateProfile.enableValidation();
+validatePost.enableValidation();

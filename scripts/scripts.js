@@ -9,14 +9,14 @@ const config = {
   errorClass: "form__input-error_active"
 }
 
-// const btnEdit = document.querySelector('#button__edit');
-// const btnAdd = document.querySelector('#button__add');
+const btnEdit = document.querySelector('#button__edit');
+const btnAdd = document.querySelector('#button__add');
 const btnClose = document.querySelectorAll('.button_action_close');
 const modal = document.querySelector('#popup');
-// const modalForm = document.querySelector('.popup__form');
+const modalForm = document.querySelector('.popup__form');
 const modalImage = document.querySelector('.popup__image');
-// const formPost = document.querySelector('#formNewPost');
-// const formProfile = document.querySelector('#formEditProfile');
+const formPost = document.querySelector('#formNewPost');
+const formProfile = document.querySelector('#formEditProfile');
 const userName = document.querySelector('#userName');
 const userDescription = document.querySelector('#userDescription');
 const postContainer = document.querySelector('#post');
