@@ -48,20 +48,20 @@ export default class FormValidator {
         const buttonElement = formElement.querySelector(objConfig.submitButtonSelector);
         this._toggleButtonState(inputList,buttonElement,objConfig);
         inputList.forEach((inputElement) => {
-            inputElement.addEventListener("input", function () {
+            inputElement.addEventListener("input", () => {
                 this._toggleButtonState(inputList,buttonElement,objConfig);
                 this._checkInputValidity(formElement, inputElement, objConfig);
             });
         });
     }
 
-    _sendForm(e){
+    _sendForm(evt){
         evt.preventDefault();
     }
 
     enableValidation(){
 
-        // this._form.addEventListener('submit', this._sendForm)
+        this._form.addEventListener('submit', this._sendForm)
         this._setEventListeners(this._form,this._config);
 
     }
