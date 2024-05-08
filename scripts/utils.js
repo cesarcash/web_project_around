@@ -24,10 +24,6 @@ export const config = {
 
 export const validateProfile = new FormValidator(config,formProfile);
 export const validatePost = new FormValidator(config,formPost);
-// export function validation(form, config){
-//     const formValida = new FormValidator(config,form);
-//     formValida.enableValidation()
-// }
 
 export const initialCards = [
     {

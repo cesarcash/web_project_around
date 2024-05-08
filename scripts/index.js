@@ -1,7 +1,5 @@
 
-// import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, validation, config } from "./utils.js";
 import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, validateProfile, validatePost} from "./utils.js";
-// import enableValidation from './FormValidator.js';
 
 document.addEventListener('keydown', keyScape)
 
@@ -31,15 +29,11 @@ btnEdit.addEventListener('click', function(){
   formProfile.style.display = 'block';
   document.querySelector('#name-input').value = userName.textContent;
   document.querySelector('#about-input').value = userDescription.textContent;
-  // enableValidation(config)
-  // validation(formProfile,config)
 })
 
 btnAdd.addEventListener('click', function(){
   handleOpenModal(modalForm);
   formPost.style.display = 'block';
-  // enableValidation(config)
-  // validation(formPost,config)
 })
 
 validateProfile.enableValidation();
