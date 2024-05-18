@@ -1,5 +1,3 @@
-import Card from "./Card.js";
-
 export const modal = document.querySelector('#popup');
 export const modalImage = document.querySelector('.popup__image');
 export const modalForm = document.querySelector('.popup__form');
@@ -8,7 +6,8 @@ export const formProfile = document.querySelector('#formEditProfile');
 export const formPost = document.querySelector('#formNewPost');
 export const btnEdit = document.querySelector('#button__edit');
 export const btnAdd = document.querySelector('#button__add');
-export const postContainer = document.querySelector('#post');
+// export const postContainer = document.querySelector('#post');
+export const postContainer = '#post';
 export const txtTitle = document.querySelector('#title-input');
 export const txtUrl = document.querySelector('#url-input');
 
@@ -54,13 +53,13 @@ export function closeModal(){
     modal.classList.remove('popup_opened')
 }
 
-export const createCard = (objData,template,container) => {
+// export const createCard = (objData,template,container) => {
 
-    const newCard = new Card(objData,template);
-    const card = newCard.generateCard();
-    container.prepend(card);
+//     const newCard = new Card(objData,template);
+//     const card = newCard.generateCard();
+//     container.prepend(card);
 
-}
+// }
 
 export function keyScape(evt){
 
@@ -103,7 +102,7 @@ export function createNewPost(evt){
         link: urlPost
     }
 
-    createCard(data,'#postTemplate',postContainer)
+    // createCard(data,'#postTemplate',postContainer)
 
     this.reset();
     closeModal();

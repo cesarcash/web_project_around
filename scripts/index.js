@@ -1,5 +1,7 @@
+import Section from './Section.js';
+import Card from "./Card.js";
 
-import {initialCards as dataCard, postContainer, createCard, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
+import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
 import FormValidator from './FormValidator.js';
 
 const validateProfile = new FormValidator(config,formProfile);
@@ -21,9 +23,16 @@ btnClose.forEach(buttonClose => {
   buttonClose.addEventListener('click', closeModal)
 })
 
-dataCard.forEach(data => {
-    createCard(data,'#postTemplate',postContainer);
-})
+const cardSection = new Section({
+  data: dataCard,
+  renderer: (item) => {
+    const card = new Card(item,'#postTemplate');
+    const newCard = card.generateCard();
+    cardSection.addItem(newCard);
+  }
+},postContainer);
+
+cardSection.renderItems();
 
 formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
