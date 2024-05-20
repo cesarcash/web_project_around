@@ -2,10 +2,11 @@ import { modalImage, handleOpenModal } from "./utils.js";
 
 export default class Card {
 
-    constructor(data,cardSelector){
+    constructor(data,cardSelector,handleCardClick){
         this._name = data.name;
         this._link = data.link;
         this._cardSelector = cardSelector;
+        this._handleCardClick = handleCardClick;
     }
 
     _getTemplate(){
@@ -22,26 +23,31 @@ export default class Card {
             this._handleDeleteCard(e)
         })
 
-        this._element.querySelector('.post__image').addEventListener('click', (e) => {
+        // this._element.querySelector('.post__image').addEventListener('click', (e) => {
 
-            handleOpenModal(modalImage)
+        //     handleOpenModal(modalImage)
 
-            const imgView = modalImage.querySelector('#popupImage');
-            imgView.setAttribute('src',this._link);
-            imgView.setAttribute('alt',this._name);
+        //     const imgView = modalImage.querySelector('#popupImage');
+        //     imgView.setAttribute('src',this._link);
+        //     imgView.setAttribute('alt',this._name);
             
-            const textView = modalImage.querySelector('.popup__text');
-            textView.textContent = this._name;
-        })
+        //     const textView = modalImage.querySelector('.popup__text');
+        //     textView.textContent = this._name;
+        // })
 
     }
 
+    
     _handleDeleteCard(e){
         e.target.closest('.post__item').remove();
     }
-
+    
     _handleLikeClick(){
         this._element.querySelector('.button_action_like').classList.toggle('button_is_active');
+    }
+    
+    handleCardClick(){
+
     }
 
     generateCard(){

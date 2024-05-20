@@ -1,5 +1,6 @@
 import Section from './Section.js';
 import Card from "./Card.js";
+import Popup from './Popup.js';
 
 import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
 import FormValidator from './FormValidator.js';
@@ -7,21 +8,23 @@ import FormValidator from './FormValidator.js';
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
 
-document.addEventListener('keydown', keyScape)
+// document.addEventListener('keydown', keyScape)
 
-window.addEventListener("click", function(evt) {
-  
-  const element = evt.target;
+// window.addEventListener("click", function(evt) {
 
-  if(element.classList.contains('popup_opened')){
-    closeModal();
-  }
-  
-})
+//   const element = evt.target;
 
-btnClose.forEach(buttonClose => {
-  buttonClose.addEventListener('click', closeModal)
-})
+//   if(element.classList.contains('popup_opened')){
+//     closeModal();
+//   }
+
+// })
+
+// btnClose.forEach(buttonClose => {
+//   buttonClose.addEventListener('click', closeModal)
+// })
+
+const popup = new Popup('#popup');
 
 const cardSection = new Section({
   data: dataCard,
@@ -38,16 +41,21 @@ formProfile.addEventListener('submit',sendFormProfile);
 formPost.addEventListener('submit', createNewPost);
 
 btnEdit.addEventListener('click', function(){
-  handleOpenModal(modalForm);
+  // handleOpenModal(modalForm);
   formProfile.style.display = 'block';
-  document.querySelector('#name-input').value = userName.textContent;
-  document.querySelector('#about-input').value = userDescription.textContent;
+  // document.querySelector('#name-input').value = userName.textContent;
+  // document.querySelector('#about-input').value = userDescription.textContent;
+  popup.open(modalForm)
 })
 
 btnAdd.addEventListener('click', function(){
-  handleOpenModal(modalForm);
+  // handleOpenModal(modalForm);
   formPost.style.display = 'block';
+  popup.open(modalForm)
+
 })
+
+popup.setEventListeners()
 
 validateProfile.enableValidation();
 validatePost.enableValidation();
