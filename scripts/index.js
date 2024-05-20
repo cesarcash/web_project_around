@@ -20,9 +20,7 @@ const validatePost = new FormValidator(config,formPost);
 
 // })
 
-// btnClose.forEach(buttonClose => {
-//   buttonClose.addEventListener('click', closeModal)
-// })
+
 
 const popup = new Popup('#popup');
 
@@ -37,12 +35,26 @@ const cardSection = new Section({
 
 cardSection.renderItems();
 
-formProfile.addEventListener('submit',sendFormProfile);
-formPost.addEventListener('submit', createNewPost);
+// formProfile.addEventListener('submit',sendFormProfile);
+// formPost.addEventListener('submit', createNewPost);
+
+formProfile.addEventListener('submit', function(){
+
+  const newName = document.querySelector('#name-input').value;
+  const newAbout = document.querySelector('#about-input').value;
+
+  const formData = {
+    title: newName,
+    url: newAbout
+  }
+
+  const form = new PopupWithForm();
+
+})
 
 btnEdit.addEventListener('click', function(){
   // handleOpenModal(modalForm);
-  formProfile.style.display = 'block';
+  // formProfile.style.display = 'block';
   // document.querySelector('#name-input').value = userName.textContent;
   // document.querySelector('#about-input').value = userDescription.textContent;
   popup.open(modalForm)
@@ -50,9 +62,13 @@ btnEdit.addEventListener('click', function(){
 
 btnAdd.addEventListener('click', function(){
   // handleOpenModal(modalForm);
-  formPost.style.display = 'block';
+  // formPost.style.display = 'block';
   popup.open(modalForm)
 
+})
+
+btnClose.forEach(buttonClose => {
+  buttonClose.addEventListener('click', popup.close)
 })
 
 popup.setEventListeners()
