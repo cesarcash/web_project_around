@@ -1,14 +1,17 @@
-import Popup from 'Popup.js';
+import Popup from './Popup.js';
+import {modalImage} from './utils.js';
 
-export default class PopupWithImage extends Popup {
+export default class PopupWithImage extends Popup {    
 
-    constructor(){
+    open(){
+        super.open(modalImage);
+
+        const imgView = modalImage.querySelector('#popupImage');
+        imgView.setAttribute('src',this._link);
+        imgView.setAttribute('alt',this._name);
         
-    }
-
-    open(modal){
-        super.open(modal);
-        
+        const textView = modalImage.querySelector('.popup__text');
+        textView.textContent = this._name;
     }
 
 }

@@ -2,9 +2,9 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
 
-    constructor(formData, selectorForm) {
+    constructor(formData, selectorPopup) {
         this._formData = formData;
-        this._selectForm = selectorForm;
+        this._selectPopup = document.querySelector(selectorPopup);
     }
 
     _getInputValues(){
@@ -16,14 +16,14 @@ export default class PopupWithForm extends Popup {
 
     close(){
         super.close();
-        document.querySelector(this._selectForm).reset();
+        // document.querySelector(this._selectForm).reset();
     }
 
     setEventListeners(){
         super.setEventListeners();
-        document.querySelector(this._selectForm).addEventListener('submit', (e) => {
-            this.close();
-        })
+        // document.querySelector(this._selectForm).addEventListener('submit', (e) => {
+        //     this.close();
+        // })
     }
 
 }

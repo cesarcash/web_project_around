@@ -28,7 +28,7 @@ const popupWithImage = new PopupWithImage();
 const cardSection = new Section({
   data: dataCard,
   renderer: (item) => {
-    const card = new Card(item,'#postTemplate');
+    const card = new Card(item,'#postTemplate',popupWithImage.open);
     const newCard = card.generateCard();
     cardSection.addItem(newCard);
   }
@@ -55,15 +55,15 @@ formProfile.addEventListener('submit', function(){
 
 btnEdit.addEventListener('click', function(){
   // handleOpenModal(modalForm);
-  // formProfile.style.display = 'block';
+  formProfile.style.display = 'block';
+  popup.open(modalForm)
   // document.querySelector('#name-input').value = userName.textContent;
   // document.querySelector('#about-input').value = userDescription.textContent;
-  popup.open(modalForm)
 })
 
 btnAdd.addEventListener('click', function(){
   // handleOpenModal(modalForm);
-  // formPost.style.display = 'block';
+  formPost.style.display = 'block';
   popup.open(modalForm)
 
 })

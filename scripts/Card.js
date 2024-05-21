@@ -24,19 +24,10 @@ export default class Card {
         })
 
         this._element.querySelector('.post__image').addEventListener('click', (e) => {
-            console.log("🚀 ~ Card ~ this._element.querySelector ~ this._handleCardClick:", this._handleCardClick)
-        //     handleOpenModal(modalImage)
-
-        //     const imgView = modalImage.querySelector('#popupImage');
-        //     imgView.setAttribute('src',this._link);
-        //     imgView.setAttribute('alt',this._name);
-            
-        //     const textView = modalImage.querySelector('.popup__text');
-        //     textView.textContent = this._name;
+            this._handleCardClick(this._link,this._name)
         })
 
     }
-
     
     _handleDeleteCard(e){
         e.target.closest('.post__item').remove();
@@ -61,24 +52,3 @@ export default class Card {
     }
 
 }
-
-// class Card {
-//     constructor(  ,handleCardClick){
-//       //this.popup = popup;
-//       this.handleCardClick = handleCardClick;
-//     }
-  
-//     setEventListeners() {
-//       this.card.addEventListener('click', () => {
-//         //this.popup.open(this.link);
-//         this.handleCardClick(this.link);
-//       })
-//     }
-//   }
-  
-  
-  
-//   //index.js
-//   const popup = new PopupWithImage(/  /);
-//   //....
-//   const card = new Card(/  */,popup.open);
