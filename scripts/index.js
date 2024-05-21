@@ -1,6 +1,8 @@
 import Section from './Section.js';
 import Card from "./Card.js";
 import Popup from './Popup.js';
+import PopupWithForm from './PopupWithForm.js';
+import PopupWithImage from './PopupWithImage.js';
 
 import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
 import FormValidator from './FormValidator.js';
@@ -20,9 +22,8 @@ const validatePost = new FormValidator(config,formPost);
 
 // })
 
-
-
 const popup = new Popup('#popup');
+const popupWithImage = new PopupWithImage();
 
 const cardSection = new Section({
   data: dataCard,
@@ -48,7 +49,7 @@ formProfile.addEventListener('submit', function(){
     url: newAbout
   }
 
-  const form = new PopupWithForm();
+  const form = new PopupWithForm(formData,'.popup__form');
 
 })
 

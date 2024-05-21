@@ -1,6 +1,10 @@
 import Popup from 'Popup.js';
 
-class PopupWithImage extends Popup {    
+export default class PopupWithImage extends Popup {
+
+    constructor(){
+        
+    }
 
     open(modal){
         super.open(modal);

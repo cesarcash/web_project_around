@@ -23,8 +23,8 @@ export default class Card {
             this._handleDeleteCard(e)
         })
 
-        // this._element.querySelector('.post__image').addEventListener('click', (e) => {
-
+        this._element.querySelector('.post__image').addEventListener('click', (e) => {
+            console.log("🚀 ~ Card ~ this._element.querySelector ~ this._handleCardClick:", this._handleCardClick)
         //     handleOpenModal(modalImage)
 
         //     const imgView = modalImage.querySelector('#popupImage');
@@ -33,7 +33,7 @@ export default class Card {
             
         //     const textView = modalImage.querySelector('.popup__text');
         //     textView.textContent = this._name;
-        // })
+        })
 
     }
 
@@ -61,3 +61,24 @@ export default class Card {
     }
 
 }
+
+// class Card {
+//     constructor(  ,handleCardClick){
+//       //this.popup = popup;
+//       this.handleCardClick = handleCardClick;
+//     }
+  
+//     setEventListeners() {
+//       this.card.addEventListener('click', () => {
+//         //this.popup.open(this.link);
+//         this.handleCardClick(this.link);
+//       })
+//     }
+//   }
+  
+  
+  
+//   //index.js
+//   const popup = new PopupWithImage(/  /);
+//   //....
+//   const card = new Card(/  */,popup.open);

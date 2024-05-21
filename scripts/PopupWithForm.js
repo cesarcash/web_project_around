@@ -1,6 +1,6 @@
 import Popup from "./Popup.js";
 
-class PopupWithForm extends Popup {
+export default class PopupWithForm extends Popup {
 
     constructor(formData, selectorForm) {
         this._formData = formData;
@@ -9,14 +9,20 @@ class PopupWithForm extends Popup {
 
     _getInputValues(){
         return {
-
+            inputTitle: this._formData.title,
+            inputUrl: this._formData.url
         }
+    }
+
+    close(){
+        super.close();
+        document.querySelector(this._selectForm).reset();
     }
 
     setEventListeners(){
         super.setEventListeners();
         document.querySelector(this._selectForm).addEventListener('submit', (e) => {
-            
+            this.close();
         })
     }
 
