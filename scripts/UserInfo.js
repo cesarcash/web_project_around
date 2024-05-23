@@ -1,6 +1,6 @@
 class UserInfo {
     
-    constructor({selectUser,selectWork},){
+    constructor({selectUser,selectWork}){
         this._selectUser = document.querySelector(selectUser);
         this._selectWork = document.querySelector(selectWork);
     }

@@ -24,6 +24,7 @@ const validatePost = new FormValidator(config,formPost);
 
 const popup = new Popup('#popup');
 const popupWithImage = new PopupWithImage();
+// const popupWithForm = new PopupWithForm(callback: () => {},'.popup__form');
 
 const cardSection = new Section({
   data: dataCard,
@@ -39,19 +40,10 @@ cardSection.renderItems();
 // formProfile.addEventListener('submit',sendFormProfile);
 // formPost.addEventListener('submit', createNewPost);
 
-formProfile.addEventListener('submit', function(){
+// formProfile.addEventListener('submit', function(){
 
-  const newName = document.querySelector('#name-input').value;
-  const newAbout = document.querySelector('#about-input').value;
 
-  const formData = {
-    title: newName,
-    url: newAbout
-  }
-
-  const form = new PopupWithForm(formData,'.popup__form');
-
-})
+// })
 
 btnEdit.addEventListener('click', function(){
   // handleOpenModal(modalForm);
