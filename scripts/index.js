@@ -5,7 +5,7 @@ import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 import UserInfo from './UserInfo.js';
 
-import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
+import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, createNewPost, config, inputName, inputAbout, txtTitle, txtUrl} from "./utils.js";
 import FormValidator from './FormValidator.js';
 
 const objUser = {
@@ -18,9 +18,12 @@ const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
 const popup = new Popup('#popup');
 const popupWithImage = new PopupWithImage();
-const popupWithForm = new PopupWithForm((form) => {
-  console.log(form)
+const popupFormEdit = new PopupWithForm((data) => {
+  userInfo.setUserInfo(data.nameProfile,data.aboutMe)
 },'.popup__form');
+const popupFormAdd = new PopupWithForm((data) => {
+  createNewPost(data)
+},'.popup__form')
 
 const cardSection = new Section({
   data: dataCard,
@@ -35,11 +38,15 @@ cardSection.renderItems();
 
 btnEdit.addEventListener('click', function(){
   const userData = userInfo.getUserInfo()
-  popupWithForm.open(modalForm,formProfile)
+  inputName.value = userData.user;
+  inputAbout.value = userData.work;
+  popupFormEdit.open(modalForm,formProfile)
+  popupFormEdit.setEventListeners()
 })
 
 btnAdd.addEventListener('click', function(){
-  popupWithForm.open(modalForm,formPost)
+  popupFormAdd.open(modalForm,formPost)
+  popupFormAdd.setEventListeners()
 })
 
 btnClose.forEach(buttonClose => {

@@ -1,3 +1,5 @@
+import Card from "./Card.js";
+
 export const modal = document.querySelector('#popup');
 export const modalImage = document.querySelector('.popup__image');
 export const modalForm = document.querySelector('.popup__form');
@@ -6,6 +8,8 @@ export const formProfile = document.querySelector('#formEditProfile');
 export const formPost = document.querySelector('#formNewPost');
 export const btnEdit = document.querySelector('#button__edit');
 export const btnAdd = document.querySelector('#button__add');
+export const inputName = document.querySelector('#name-input');
+export const inputAbout = document.querySelector('#about-input');
 // export const postContainer = document.querySelector('#post');
 export const postContainer = '#post';
 export const txtTitle = document.querySelector('#title-input');
@@ -53,14 +57,6 @@ export function closeModal(){
     modal.classList.remove('popup_opened')
 }
 
-// export const createCard = (objData,template,container) => {
-
-//     const newCard = new Card(objData,template);
-//     const card = newCard.generateCard();
-//     container.prepend(card);
-
-// }
-
 export function keyScape(evt){
 
     const keyUser = evt.key;
@@ -78,33 +74,24 @@ export function handleOpenModal(content){
     content.style.display = 'block';
 }
 
-export function sendFormProfile(e){
+export const createCard = (objData,template,container) => {
 
-    e.preventDefault();
-    const newName = document.querySelector('#name-input').value;
-    const newAbout = document.querySelector('#about-input').value;
-  
-    userName.textContent = newName;
-    userDescription.textContent = newAbout;
-  
-    closeModal();
-  
+  const postContainer = document.querySelector(container)
+  const newCard = new Card(objData,template);
+  console.log("🚀 ~ createCard ~ newCard:", newCard)
+  const card = newCard.generateCard();
+  postContainer.prepend(card);
+
 }
 
-export function createNewPost(evt){
+export function createNewPost(data){
+  console.log("🚀 ~ createNewPost ~ data:", data)
 
-    evt.preventDefault();
-  
-    const titlePost = txtTitle.value;
-    const urlPost = txtUrl.value;
-    const data = {
-        name: titlePost,
-        link: urlPost
-    }
+  const formData = {
+      name: data.title,
+      link: data.url
+  }
 
-    // createCard(data,'#postTemplate',postContainer)
-
-    this.reset();
-    closeModal();
+  createCard(formData,'#postTemplate',postContainer)
 
 }

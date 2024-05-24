@@ -36,9 +36,6 @@ export default class Card {
     _handleLikeClick(){
         this._element.querySelector('.button_action_like').classList.toggle('button_is_active');
     }
-    
-    handleCardClick(){
-    }
 
     generateCard(){
 

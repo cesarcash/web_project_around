@@ -26,6 +26,7 @@ export default class PopupWithForm extends Popup {
     }
 
     close(){
+        super.close();
         this._popup.querySelectorAll('.form').forEach(formItem => {
             formItem.reset();
         })
@@ -36,8 +37,9 @@ export default class PopupWithForm extends Popup {
         super.setEventListeners();
         this._popup.addEventListener('submit', (evt) => {
             evt.preventDefault();
-            console.log('form')
-            this._close();
+            const formData = this._getInputValues();
+            this._callbackForm(formData);
+            this.close();
         })
         
     }
