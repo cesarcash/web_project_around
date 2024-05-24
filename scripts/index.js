@@ -41,12 +41,12 @@ btnEdit.addEventListener('click', function(){
   inputName.value = userData.user;
   inputAbout.value = userData.work;
   popupFormEdit.open(modalForm,formProfile)
-  popupFormEdit.setEventListeners()
+  popupFormEdit.setEventListeners()//mover fuera
 })
 
 btnAdd.addEventListener('click', function(){
   popupFormAdd.open(modalForm,formPost)
-  popupFormAdd.setEventListeners()
+  popupFormAdd.setEventListeners()//mover fuera
 })
 
 btnClose.forEach(buttonClose => {
