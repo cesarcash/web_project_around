@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
-    <div class="popup" id="popup">
+    <div class="popup" id="popupImage">
         <div class="popup__image">
             <img class="popup__view-image" id="popupImage">
             <p class="popup__text"></p>
@@ -22,6 +22,23 @@
                 <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
             </button>
         </div>
+    </div>
+    <div class="popup" id="popupFormEdit">
+        <div class="popup__form">
+            <button class="button button_action_close" aria-label="Cerrar ventana">
+                <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
+            </button>
+            <form id="formEditProfile" name="form" class="form">
+                <h3 class="form__title">Editar perfil</h3>
+                <input type="text" class="form__input" name="nameProfile" id="name-input" required placeholder="Nombre" minlength="2" maxlength="40">
+                <span class="form__input-error name-input-error"></span>
+                <input type="text" class="form__input" name="aboutMe" id="about-input" required placeholder="Acerca de mi" minlength="2" maxlength="200">
+                <span class="form__input-error about-input-error"></span>
+                <button type="submit" class="form__button" aria-label="Guardar">Guardar</button>
+            </form>
+        </div>
+    </div>
+    <div class="popup" id="popupAdd">        
         <div class="popup__form">
             <button class="button button_action_close" aria-label="Cerrar ventana">
                 <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
@@ -34,14 +51,6 @@
                     <input type="url" class="form__input" name="url" id="url-input" required placeholder="Enlace a la imagen">
                     <span class="form__input-error url-input-error"></span>
                     <button type="submit" class="form__button" aria-label="Crear">Crear</button>
-                </form>
-                <form id="formEditProfile" name="form" class="form">
-                    <h3 class="form__title">Editar perfil</h3>
-                    <input type="text" class="form__input" name="nameProfile" id="name-input" required placeholder="Nombre" minlength="2" maxlength="40">
-                    <span class="form__input-error name-input-error"></span>
-                    <input type="text" class="form__input" name="aboutMe" id="about-input" required placeholder="Acerca de mi" minlength="2" maxlength="200">
-                    <span class="form__input-error about-input-error"></span>
-                    <button type="submit" class="form__button" aria-label="Guardar">Guardar</button>
                 </form>
             </div>
         </div>
