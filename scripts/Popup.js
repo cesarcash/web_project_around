@@ -1,17 +1,15 @@
-import { handleOpenModal, closeModal } from './utils.js';
-
 export default class Popup {
 
     constructor(popupSelector){
         this._popup = document.querySelector(popupSelector);
     }
 
-    open(modal){
-        handleOpenModal(modal)
+    open(){
+        this._popup.classList.add('popup_opened');
     }
 
     close(){
-        closeModal();
+        this._popup.classList.remove('popup_opened');
     }
 
     _handleEscClose(evt){
@@ -21,15 +19,13 @@ export default class Popup {
     }
     
     setEventListeners(){
-        
+
         window.addEventListener('keydown', (evt) => {
             this._handleEscClose(evt);
         })
 
-        this._popup.addEventListener('click', (evt) => {
-            if(evt.target.classList.contains('button_action_close') || evt.target.classList.contains('popup_opened')){
-                this.close();
-            }
+        this._popup.querySelector('.button_action_close').addEventListener('click', (evt) => {
+            this.close();
         })
 
     }

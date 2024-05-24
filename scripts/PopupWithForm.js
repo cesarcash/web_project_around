@@ -20,9 +20,8 @@ export default class PopupWithForm extends Popup {
         
     }
 
-    open(modal,form){
-        super.open(modal);
-        form.style.display = 'block';
+    open(){
+        super.open();
     }
 
     close(){
@@ -33,7 +32,7 @@ export default class PopupWithForm extends Popup {
     }
 
     setEventListeners(){
-        
+
         super.setEventListeners();
         this._popup.addEventListener('submit', (evt) => {
             evt.preventDefault();

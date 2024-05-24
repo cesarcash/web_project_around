@@ -1,11 +1,10 @@
 import Section from './Section.js';
 import Card from "./Card.js";
-import Popup from './Popup.js';
 import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 import UserInfo from './UserInfo.js';
 
-import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, createNewPost, config, inputName, inputAbout, txtTitle, txtUrl} from "./utils.js";
+import {initialCards as dataCard, postContainer, btnClose, btnEdit, modalForm, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./utils.js";
 import FormValidator from './FormValidator.js';
 
 const objUser = {
@@ -16,14 +15,13 @@ const objUser = {
 const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
-const popup = new Popup('#popup');
-const popupWithImage = new PopupWithImage();
+const popupWithImage = new PopupWithImage('#popupImage');
 const popupFormEdit = new PopupWithForm((data) => {
   userInfo.setUserInfo(data.nameProfile,data.aboutMe)
-},'.popup__form');
+},'#popupEdit');
 const popupFormAdd = new PopupWithForm((data) => {
   createNewPost(data)
-},'.popup__form')
+},'#popupAdd');
 
 const cardSection = new Section({
   data: dataCard,
@@ -40,20 +38,18 @@ btnEdit.addEventListener('click', function(){
   const userData = userInfo.getUserInfo()
   inputName.value = userData.user;
   inputAbout.value = userData.work;
-  popupFormEdit.open(modalForm,formProfile)
-  popupFormEdit.setEventListeners()//mover fuera
+  popupFormEdit.open()
 })
+
+popupFormEdit.setEventListeners()
+popupFormEdit.close()
 
 btnAdd.addEventListener('click', function(){
-  popupFormAdd.open(modalForm,formPost)
-  popupFormAdd.setEventListeners()//mover fuera
+  popupFormAdd.open()
 })
 
-btnClose.forEach(buttonClose => {
-  buttonClose.addEventListener('click', popup.close)
-})
-
-popup.setEventListeners()
+popupFormAdd.setEventListeners()
+popupFormAdd.close();
 
 validateProfile.enableValidation();
 validatePost.enableValidation();

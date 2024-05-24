@@ -1,5 +1,3 @@
-import { modalImage, handleOpenModal } from "./utils.js";
-
 export default class Card {
 
     constructor(data,cardSelector,handleCardClick){
