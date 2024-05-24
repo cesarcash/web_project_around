@@ -22,7 +22,7 @@ export default class Popup {
     
     setEventListeners(){
         
-        document.addEventListener('keydown', (evt) => {
+        window.addEventListener('keydown', (evt) => {
             this._handleEscClose(evt);
         })
 

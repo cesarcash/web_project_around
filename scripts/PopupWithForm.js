@@ -2,7 +2,7 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
 
-    constructor(callbackForm, selectorPopup) {
+    constructor(callbackForm,selectorPopup) {
         super(selectorPopup);
         this._callbackForm = callbackForm;
     }
@@ -20,15 +20,23 @@ export default class PopupWithForm extends Popup {
         
     }
 
+    open(modal,form){
+        super.open(modal);
+        form.style.display = 'block';
+    }
+
     close(){
-        super.close();
-        // document.querySelector(this._selectForm).reset();
+        this._popup.querySelectorAll('.form').forEach(formItem => {
+            formItem.reset();
+        })
     }
 
     setEventListeners(){
         
         super.setEventListeners();
-        this._popup.addEventListener('submit', () => {
+        this._popup.addEventListener('submit', (evt) => {
+            evt.preventDefault();
+            console.log('form')
             this._close();
         })
         

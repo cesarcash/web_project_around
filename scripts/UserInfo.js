@@ -1,10 +1,10 @@
-class UserInfo {
+export default class UserInfo {
     
-    constructor({selectUser,selectWork}){
-        this._selectUser = document.querySelector(selectUser);
-        this._selectWork = document.querySelector(selectWork);
+    constructor({user,description}){
+        this._selectUser = document.querySelector(user);
+        this._selectWork = document.querySelector(description);
     }
-
+    
     getUserInfo(){
         return {
             user: this._selectUser.textContent,

@@ -3,28 +3,24 @@ import Card from "./Card.js";
 import Popup from './Popup.js';
 import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
+import UserInfo from './UserInfo.js';
 
 import {initialCards as dataCard, postContainer, btnClose, closeModal, btnEdit, handleOpenModal, modalForm, formProfile, btnAdd, formPost, keyScape, sendFormProfile, createNewPost, config} from "./utils.js";
 import FormValidator from './FormValidator.js';
 
+const objUser = {
+  user: '#userName',
+  description: '#userDescription'
+}
+
+const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
-
-// document.addEventListener('keydown', keyScape)
-
-// window.addEventListener("click", function(evt) {
-
-//   const element = evt.target;
-
-//   if(element.classList.contains('popup_opened')){
-//     closeModal();
-//   }
-
-// })
-
 const popup = new Popup('#popup');
 const popupWithImage = new PopupWithImage();
-// const popupWithForm = new PopupWithForm(callback: () => {},'.popup__form');
+const popupWithForm = new PopupWithForm((form) => {
+  console.log(form)
+},'.popup__form');
 
 const cardSection = new Section({
   data: dataCard,
@@ -37,27 +33,13 @@ const cardSection = new Section({
 
 cardSection.renderItems();
 
-// formProfile.addEventListener('submit',sendFormProfile);
-// formPost.addEventListener('submit', createNewPost);
-
-// formProfile.addEventListener('submit', function(){
-
-
-// })
-
 btnEdit.addEventListener('click', function(){
-  // handleOpenModal(modalForm);
-  formProfile.style.display = 'block';
-  popup.open(modalForm)
-  // document.querySelector('#name-input').value = userName.textContent;
-  // document.querySelector('#about-input').value = userDescription.textContent;
+  const userData = userInfo.getUserInfo()
+  popupWithForm.open(modalForm,formProfile)
 })
 
 btnAdd.addEventListener('click', function(){
-  // handleOpenModal(modalForm);
-  formPost.style.display = 'block';
-  popup.open(modalForm)
-
+  popupWithForm.open(modalForm,formPost)
 })
 
 btnClose.forEach(buttonClose => {
