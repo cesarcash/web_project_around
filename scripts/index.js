@@ -51,5 +51,7 @@ btnAdd.addEventListener('click', function(){
 popupFormAdd.setEventListeners()
 popupFormAdd.close();
 
+popupWithImage.setEventListeners()
+
 validateProfile.enableValidation();
 validatePost.enableValidation();
