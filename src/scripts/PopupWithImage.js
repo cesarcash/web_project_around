@@ -1,5 +1,4 @@
 import Popup from './Popup.js';
-import {modalImage} from './utils.js';
 
 export default class PopupWithImage extends Popup {
 

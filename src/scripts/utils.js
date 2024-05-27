@@ -1,4 +1,5 @@
 import Card from "./Card.js";
+import PopupWithImage from "./PopupWithImage.js";
 
 export const modal = document.querySelector('#popup');
 export const modalImage = document.querySelector('.popup__image');
@@ -13,6 +14,8 @@ export const btnAdd = document.querySelector('#button__add');
 export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
 export const postContainer = '#post';
+const popupWithImage = new PopupWithImage('#popupImage');
+
 
 export const config = {
     formSelector: ".form",
@@ -25,64 +28,41 @@ export const config = {
 
 export const initialCards = [
     {
-      name: "Puerto progreso, Yucatán",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image1.jpg"
+      name: "Valle de Yosemite",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
     },
     {
-      name: "La Habana, Cuba",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image7.jpg"
+      name: "Lago Louise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
     },
     {
-      name: "Chiapas",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery_image5.jpg"
+      name: "Montañas Calvas",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
     },
     {
-      name: "Cartagena, Colombia",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery_image2.JPG"
+      name: "Latemar",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
     },
     {
-      name: "Oaxaca",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image3.jpg"
+      name: "Parque Nacional de la Vanoise",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
     },
     {
-      name: "Colonia, Uruguay",
-      link: "https://cesarcash.github.io/web_project_around/images/gallery__image4.jpg"
+      name: "Lago di Braies",
+      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
     }
 ];
-
-// export function closeModal(){
-//     modal.classList.remove('popup_opened')
-// }
-
-// export function keyScape(evt){
-
-//     const keyUser = evt.key;
-//     if(keyUser === 'Escape' && modal.classList.contains('popup_opened')){
-//       closeModal();
-//       evt.target.removeEventListener('keydown', keyScape);
-//     }
-  
-// }
-
-// export function handleOpenModal(content){
-//     modal.classList.add('popup_opened');
-//     modalForm.style.display = 'none';
-//     modalImage.style.display = 'none';
-//     content.style.display = 'block';
-// }
 
 export const createCard = (objData,template,container) => {
 
   const postContainer = document.querySelector(container)
-  const newCard = new Card(objData,template);
-  console.log("🚀 ~ createCard ~ newCard:", newCard)
+  const newCard = new Card(objData,template,popupWithImage.open);
   const card = newCard.generateCard();
   postContainer.prepend(card);
 
 }
 
 export function createNewPost(data){
-  console.log("🚀 ~ createNewPost ~ data:", data)
 
   const formData = {
       name: data.title,
