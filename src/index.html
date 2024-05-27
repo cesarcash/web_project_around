@@ -8,7 +8,6 @@
     <meta name="keywords" content="viaje, mexico, latinoamerica, trip" />
     <title>Alrededor del Mundo</title>
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="./pages/index.css">
 </head>
 <body>
     <div class="popup" id="popupImage">
@@ -16,14 +15,14 @@
             <img class="popup__view-image" id="popupImage">
             <p class="popup__text"></p>
             <button class="button button_action_close" aria-label="Cerrar ventana">
-                <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
+                <img src="<%=require('./images/icon__close.svg')%>" class="button__close-image" alt="Cerrar ventana">
             </button>
         </div>
     </div>
     <div class="popup" id="popupEdit">
         <div class="popup__form">
             <button class="button button_action_close" aria-label="Cerrar ventana">
-                <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
+                <img src="<%=require('./images/icon__close.svg')%>" class="button__close-image" alt="Cerrar ventana">
             </button>
             <form id="formEditProfile" name="form" class="form">
                 <h3 class="form__title">Editar perfil</h3>
@@ -38,7 +37,7 @@
     <div class="popup" id="popupAdd">        
         <div class="popup__form">
             <button class="button button_action_close" aria-label="Cerrar ventana">
-                <img src="./images/icon__close.svg" class="button__close-image" alt="Cerrar ventana">
+                <img src="<%=require('./images/icon__close.svg')%>" class="button__close-image" alt="Cerrar ventana">
             </button>
             <div class="popup__content" id="popupContent">
                 <form id="formNewPost" name="form" class="form">
@@ -55,24 +54,24 @@
     <div class="page">
         <div class="page__container">
             <header class="header">
-                <img src="./images/logo__white.png" alt="Alrededor del mundo" class="header__logo">
+                <img src="<%=require('./images/logo__white.png')%>" alt="Alrededor del mundo" class="header__logo">
             </header>            
             <div class="user">
                 <div class="user__picture">
-                    <img src="./images/profile.jpg" alt="César Salazar" class="user__photo">
+                    <img src="<%=require('./images/profile.jpg')%>" alt="César Salazar" class="user__photo">
                 </div>
                 <div class="user__data">
                     <div class="user__data-row">
                         <h1 class="user__name-profile" id="userName">César Salazar</h1>
                         <button id="button__edit" class="button button_action_edit" aria-label="Editar perfil">
-                            <img src="./images/icon__edit.svg" alt="Editar perfil" class="button__edit-image">
+                            <img src="<%=require('./images/icon__edit.svg')%>" alt="Editar perfil" class="button__edit-image">
                         </button>
                     </div>
                     <p class="user__name-description" id="userDescription">Fotográfo</p>
                 </div>
                 <div class="user__action">
                     <button id="button__add" class="button button_action_add" aria-label="Añadir post">
-                        <img src="./images/add.png" alt="Añadir post" class="button__add-image">
+                        <img src="<%=require('./images/add.png')%>" alt="Añadir post" class="button__add-image">
                     </button>
                 </div>
             </div>
@@ -94,7 +93,5 @@
             </div>
         </section>
     </template>
-    <!-- <script src="./scripts/scripts.js" type="module"></script> -->
-    <script src="./scripts/index.js" type="module"></script>
 </body>
 </html>

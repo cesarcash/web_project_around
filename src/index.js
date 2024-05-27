@@ -1,11 +1,12 @@
-import Section from './Section.js';
-import Card from "./Card.js";
-import PopupWithForm from './PopupWithForm.js';
-import PopupWithImage from './PopupWithImage.js';
-import UserInfo from './UserInfo.js';
+import "./styles/index.css";
+import Section from './scripts/Section.js';
+import Card from "./scripts/Card.js";
+import PopupWithForm from './scripts/PopupWithForm.js';
+import PopupWithImage from './scripts/PopupWithImage.js';
+import UserInfo from './scripts/UserInfo.js';
 
-import {initialCards as dataCard, postContainer, btnClose, btnEdit, modalForm, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./utils.js";
-import FormValidator from './FormValidator.js';
+import {initialCards as dataCard, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import FormValidator from './scripts/FormValidator.js';
 
 const objUser = {
   user: '#userName',
