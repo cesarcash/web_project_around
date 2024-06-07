@@ -8,6 +8,21 @@
     align-items: center;
 }
 
+.popup__delete {
+    position: relative;
+    width: 430px;
+    border-radius: 10px;
+    background-color: #fff;
+    padding: 34px 36px 36px 36px;
+    box-sizing: border-box;
+}
+
+.popup__delete_title {
+    font-family: 'Inter Black';
+    font-size: 24px;
+    margin: 0 0 38px;
+}
+
 .popup__image {
     position: relative;
 }

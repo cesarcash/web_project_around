@@ -2,6 +2,7 @@ import "./styles/index.css";
 import Section from './scripts/Section.js';
 import Card from "./scripts/Card.js";
 import PopupWithForm from './scripts/PopupWithForm.js';
+import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
 
