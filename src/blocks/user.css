@@ -3,13 +3,36 @@
     flex-direction: column;
     padding: 42px 19px 36px;
     align-items: center;
+    transition: .3s ease-in all;
 }
 
 .user__picture {
     max-width: 120px;
     border-radius: 50%;
     overflow: hidden;
-    margin-bottom: 14px;    
+    margin-bottom: 14px;
+    position: relative;
+    transition: .3s ease-in all;
+}
+
+.user__picture:hover {
+    cursor: pointer;
+}
+
+.user__picture_edit {
+    position: absolute;
+    background-color: rgba(0,0,0,.8);
+    background-image: url('../images/edit__profile.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-clip: padding-box;
+    inset: 0;
+    display: none;
+    transition: .5s ease-in all;
+}
+
+.user__picture:hover .user__picture_edit {
+    display: block;
 }
 
 .user__photo {

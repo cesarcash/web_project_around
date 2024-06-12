@@ -1,6 +1,8 @@
 import Card from "./Card.js";
 import PopupWithImage from "./PopupWithImage.js";
 
+const group = 'web_es_11/';
+const URLServer = `https://around.nomoreparties.co/v1/`;
 export const modal = document.querySelector('#popup');
 export const modalImage = document.querySelector('.popup__image');
 export const modalForm = document.querySelector('.popup__form');
@@ -14,6 +16,9 @@ export const btnAdd = document.querySelector('#button__add');
 export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
 export const postContainer = '#post';
+export const token = 'aeb303a7-85a3-41cc-b9b3-71f2eddd73ac';
+export const URLUser = URLServer+group+'users/me';
+export const URLCards = URLServer+group+'/cards';
 const popupWithImage = new PopupWithImage('#popupImage');
 
 
