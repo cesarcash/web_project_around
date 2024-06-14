@@ -13,13 +13,19 @@ export const formProfile = document.querySelector('#formEditProfile');
 export const formPost = document.querySelector('#formNewPost');
 export const btnEdit = document.querySelector('#button__edit');
 export const btnAdd = document.querySelector('#button__add');
+export const btnPhoto = document.querySelector('.user__picture');
 export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
 export const postContainer = '#post';
 export const token = 'aeb303a7-85a3-41cc-b9b3-71f2eddd73ac';
 export const URLUser = URLServer+group+'users/me';
-export const URLCards = URLServer+group+'/cards';
+export const URLCards = URLServer+group+'cards';
 const popupWithImage = new PopupWithImage('#popupImage');
+
+export const configHeaders = {
+  token,
+  type: 'application/json'
+}
 
 
 export const config = {

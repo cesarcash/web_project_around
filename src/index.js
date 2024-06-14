@@ -5,9 +5,19 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {URLUser, initialCards as dataCard, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {configHeaders, btnPhoto, URLUser, URLCards, initialCards as dataCard, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
+import Api from './scripts/Api.js';
 
+const api = new Api({
+  headers: {
+    authorization: configHeaders.token,
+    "Content-Type": configHeaders.type
+  }
+});
+
+const arrCards = api.getInitialCards(URLCards)
+const infoUser = api.getInfoUser(URLUser);
 
 const objUser = {
   user: '#userName',
@@ -24,6 +34,9 @@ const popupFormEdit = new PopupWithForm((data) => {
 const popupFormAdd = new PopupWithForm((data) => {
   createNewPost(data)
 },'#popupAdd');
+const popupFormPhoto = new PopupWithForm((data) => {
+
+},'#popupPhoto')
 
 const cardSection = new Section({
   data: dataCard,
@@ -42,6 +55,13 @@ btnEdit.addEventListener('click', function(){
   inputAbout.value = userData.work;
   popupFormEdit.open()
 })
+
+btnPhoto.addEventListener('click', function() {
+  popupFormPhoto.open()
+})
+
+popupFormPhoto.setEventListeners()
+popupFormPhoto.close()
 
 popupFormEdit.setEventListeners()
 popupFormEdit.close()

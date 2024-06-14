@@ -10,6 +10,19 @@
     <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
 </head>
 <body>
+    <div class="popup" id="popupPhoto">
+        <div class="popup__delete">
+            <button class="button button_action_close" aria-label="Cerrar ventana">
+                <img src="<%=require('./images/icon__close.svg')%>" class="button__close-image" alt="Cerrar ventana">
+            </button>
+            <form id="formEditPhoto" name="form" class="form">
+                <h3 class="form__title">Cambiar foto de perfil</h3>
+                <input type="url" class="form__input" name="url" id="url-Photo" required placeholder="Enlace a la imagen">
+                <span class="form__input-error url-input-error"></span>
+                <button type="submit" class="form__button" aria-label="Guardar">Guardar</button>
+            </form>
+        </div>
+    </div>
     <div class="popup" id="popupDelete">
         <div class="popup__delete">
             <button class="button button_action_close" aria-label="Cerrar ventana">
