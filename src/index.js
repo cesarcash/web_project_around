@@ -52,12 +52,12 @@ const popupWithImage = new PopupWithImage('#popupImage');
 const popupFormEdit = new PopupWithForm((data) => {
   console.log("🚀 ~ popupFormEdit ~ data:", data)
 
-  api.editInfoUser(data,URLUser)
-  // editUser.then(res => {
-  //   console.log("🚀 ~ res:", res)
-  //   userInfo.setUserInfo(data.nameProfile,data.aboutMe)
-  // })
-  // .catch(error => console.log(error))
+  const editUser = api.editInfoUser(data,URLUser)
+  editUser.then(res => {
+    console.log("🚀 ~ res:", res)
+    userInfo.setUserInfo(data.nameProfile,data.aboutMe)
+  })
+  .catch(error => console.log(error))
 
 },'#popupEdit');
 
