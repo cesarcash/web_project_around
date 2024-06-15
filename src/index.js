@@ -12,7 +12,7 @@ import Api from './scripts/Api.js';
 const api = new Api({
   headers: {
     authorization: configHeaders.token,
-    "Content-Type": configHeaders.type
+    type: configHeaders.type
   }
 });
 
