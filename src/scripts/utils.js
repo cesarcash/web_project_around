@@ -37,33 +37,6 @@ export const config = {
     errorClass: "form__input-error_active"
 }
 
-export const initialCards = [
-    {
-      name: "Valle de Yosemite",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/yosemite.jpg"
-    },
-    {
-      name: "Lago Louise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lake-louise.jpg"
-    },
-    {
-      name: "Montañas Calvas",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/bald-mountains.jpg"
-    },
-    {
-      name: "Latemar",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/latemar.jpg"
-    },
-    {
-      name: "Parque Nacional de la Vanoise",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/vanoise.jpg"
-    },
-    {
-      name: "Lago di Braies",
-      link: "https://practicum-content.s3.us-west-1.amazonaws.com/new-markets/WEB_sprint_5/ES/lago.jpg"
-    }
-];
-
 export const createCard = (objData,template,container) => {
 
   const postContainer = document.querySelector(container)
@@ -81,5 +54,14 @@ export function createNewPost(data){
   }
 
   createCard(formData,'#postTemplate',postContainer)
+
+}
+
+export function setInfoUser({about,name,avatar}){
+
+  document.querySelector('#userName').textContent = name
+  document.querySelector('#userDescription').textContent = about
+  document.querySelector('.user__photo').src = avatar
+  document.querySelector('.user__photo').alt = name
 
 }

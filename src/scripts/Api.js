@@ -26,10 +26,24 @@ export default class Api {
                 'Content-Type': this._headers.type
             }
         })
-        .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status} `) )
-        // .then(data => {
-        //     console.log("🚀 ~ Api ~ getInfoUser ~ data:", data)
-        // })
+        .then(res => res.ok ? res.json() : Promise.reject(`Error: ${res.status} `) )        
+
+    }
+
+    editInfoUser({nameProfile,aboutMe},url){
+        
+        fetch(url, {
+            method: 'PATCH',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            },
+            body: JSON.stringify({
+                name: nameProfile,
+                about: aboutMe
+            })
+        })
+        .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
 
     }
 
