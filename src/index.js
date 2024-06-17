@@ -50,26 +50,29 @@ const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
 
 const popupFormEdit = new PopupWithForm((data) => {
-  console.log("🚀 ~ popupFormEdit ~ data:", data)
 
-  const editUser = api.editInfoUser(data,URLUser)
-  editUser.then(res => {
-    console.log("🚀 ~ res:", res)
-    userInfo.setUserInfo(data.nameProfile,data.aboutMe)
+  api.editInfoUser(data,URLUser)
+  .then(res => {
+    userInfo.setUserInfo(res.name,res.about)
   })
-  .catch(error => console.log(error))
+  .catch(error => console.log(`Aqui es error `+error))
 
 },'#popupEdit');
 
 const popupFormAdd = new PopupWithForm((data) => {
-  createNewPost(data)
+
+  const setCard = api.setNewCard(data,URLCards)
+
+  setCard.then(res => {
+    createNewPost(data)
+  })
+  .catch(error => console.log('Hay un error: '+error))
+
 },'#popupAdd');
 
 const popupFormPhoto = new PopupWithForm((data) => {
   console.log("🚀 ~ popupFormPhoto ~ data:", data)
 },'#popupPhoto')
-
-
 
 btnEdit.addEventListener('click', function(){
   const userData = userInfo.getUserInfo()

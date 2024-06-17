@@ -27,7 +27,6 @@ export const configHeaders = {
   type: 'application/json'
 }
 
-
 export const config = {
     formSelector: ".form",
     inputSelector: ".form__input",

@@ -1,11 +1,9 @@
 export default class Api {
 
-    constructor({baseUrl,headers}){
-
+    constructor({headers}){
         this._headers = headers;
-        
     }
-    
+
     getInitialCards(urlCards){
 
         return fetch(urlCards,{
@@ -32,7 +30,7 @@ export default class Api {
 
     editInfoUser({nameProfile,aboutMe},url){
         
-        fetch(url, {
+        return fetch(url, {
             method: 'PATCH',
             headers: {
                 authorization: this._headers.authorization,
@@ -42,6 +40,24 @@ export default class Api {
                 name: nameProfile,
                 about: aboutMe
             })
+        })
+        .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+
+    }
+
+    setNewCard({title,url}, urlCards){
+        
+        return fetch(urlCards,{
+            method: 'POST',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            },
+            body: JSON.stringify({
+                name: title,
+                link: url
+            })
+            
         })
         .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
 
