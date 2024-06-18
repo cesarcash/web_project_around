@@ -7,11 +7,23 @@ export default class PopupWithConfirmation extends Popup {
     }
 
     open(){
+
         super.open();
+
     }
 
     setEventListeners(){
+
         super.setEventListeners();
+
+        this._popup.addEventListener('click', e => {
+            
+            if(e.target.value){
+                console.log('borra')
+            }
+            
+        })
+
     }
 
 }

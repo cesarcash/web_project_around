@@ -60,6 +60,20 @@
     width: 210px;
 }
 
+.post__details {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3px;
+}
+
+.post__likes {
+    color: #000;
+    font-family: 'Inter Regular';
+    font-size: 13px;
+}
+
 @media screen and (min-width: 1280px) {
     .post {
         grid-template-columns: repeat(3,minmax(282px,1fr));

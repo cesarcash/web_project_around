@@ -29,7 +29,7 @@
                 <img src="<%=require('./images/icon__close.svg')%>" class="button__close-image" alt="Cerrar ventana">
             </button>
             <h3 class="popup__delete_title">¿Estás seguro?</h3>
-            <button class="form__button" aria-label="Si">Si</button>
+            <button class="form__button" aria-label="Si" value="true">Si</button>
         </div>
     </div>
     <div class="popup" id="popupImage" >
@@ -112,7 +112,10 @@
             </div>
             <div class="post__description">
                 <h2 class="post__name"></h2>
-                <button class="button button_action_like" aria-label="Me gusta"></button>
+                <div class="post__details">
+                    <button class="button button_action_like" aria-label="Me gusta"></button>
+                    <span class="post__likes"></span>
+                </div>
             </div>
         </section>
     </template>

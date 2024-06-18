@@ -28,7 +28,7 @@ arrCards.then(cards => {
   const cardSection = new Section({
     data: cards,
     renderer: (item) => {
-      const card = new Card(item,'#postTemplate',popupWithImage.open);
+      const card = new Card(item,'#postTemplate',popupWithImage.open,popupWithConfirmation.open);
       const newCard = card.generateCard();
       cardSection.addItem(newCard);
     }
@@ -48,6 +48,7 @@ const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
+const popupWithConfirmation = new PopupWithConfirmation('#popupDelete');
 
 const popupFormEdit = new PopupWithForm((data) => {
 
@@ -99,6 +100,7 @@ popupFormAdd.setEventListeners()
 popupFormAdd.close();
 
 popupWithImage.setEventListeners()
+popupWithConfirmation.setEventListeners()
 
 validateProfile.enableValidation();
 validatePost.enableValidation();

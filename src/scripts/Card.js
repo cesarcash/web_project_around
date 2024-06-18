@@ -1,10 +1,16 @@
+import { _idUser } from "./utils.js";
+
 export default class Card {
 
-    constructor(data,cardSelector,handleCardClick){
+    constructor(data,cardSelector,handleCardClick,handleConfirmDelete){
+        console.log("🚀 ~ Card ~ constructor ~ data:", data)
         this._name = data.name;
         this._link = data.link;
+        this._likes = data.likes;
+        this._idUser = data.owner._id;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
+        this._handleConfirmDelete = handleConfirmDelete;
     }
 
     _getTemplate(){
@@ -18,7 +24,11 @@ export default class Card {
         })
 
         this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
-            this._handleDeleteCard(e)
+            
+            this._handleConfirmDelete()
+            console.log("🚀 ~ Card ~ this._element.querySelector ~ this:", this)
+            
+            // this._handleDeleteCard(e)
         })
 
         this._element.querySelector('.post__image').addEventListener('click', (e) => {
@@ -38,10 +48,17 @@ export default class Card {
     generateCard(){
 
         this._element = this._getTemplate();
+        
+        if(this._idUser != _idUser){
+            const buttonDelete = this._element.querySelector('.button_action_delete')
+            buttonDelete.style.display = 'none';
+        }
+
         this._setEventListeners();
         this._element.querySelector('.post__image').setAttribute('src',this._link);
         this._element.querySelector('.post__image').setAttribute('alt',this._name);
         this._element.querySelector('.post__name').textContent = this._name;
+        this._element.querySelector('.post__likes').textContent = this._likes.length;
         return this._element;
 
     }

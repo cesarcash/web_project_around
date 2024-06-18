@@ -18,6 +18,7 @@ export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
 export const postContainer = '#post';
 export const token = 'aeb303a7-85a3-41cc-b9b3-71f2eddd73ac';
+export const _idUser = "1994c107d55c6b91e4b2b673";
 export const URLUser = URLServer+group+'users/me';
 export const URLCards = URLServer+group+'cards';
 const popupWithImage = new PopupWithImage('#popupImage');
