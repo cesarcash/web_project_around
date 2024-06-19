@@ -63,4 +63,16 @@ export default class Api {
 
     }
 
+    deleteCard(url){
+        
+        return fetch(url, {
+            method: 'DELETE',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            }
+        })
+       .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+    }
+
 }

@@ -2,15 +2,16 @@ import { _idUser } from "./utils.js";
 
 export default class Card {
 
-    constructor(data,cardSelector,handleCardClick,handleConfirmDelete){
+    constructor(data,cardSelector,handleCardClick,handleOpenPopup){
         console.log("🚀 ~ Card ~ constructor ~ data:", data)
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
         this._idUser = data.owner._id;
+        this._idCard = data._id;
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
-        this._handleConfirmDelete = handleConfirmDelete;
+        this._handleOpenPopup = handleOpenPopup;
     }
 
     _getTemplate(){
@@ -25,10 +26,9 @@ export default class Card {
 
         this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
             
-            this._handleConfirmDelete()
-            console.log("🚀 ~ Card ~ this._element.querySelector ~ this:", this)
-            
+            this._handleOpenPopup(this._idCard)
             // this._handleDeleteCard(e)
+
         })
 
         this._element.querySelector('.post__image').addEventListener('click', (e) => {
@@ -55,6 +55,7 @@ export default class Card {
         }
 
         this._setEventListeners();
+        this._element.setAttribute('idCard',this._idCard);
         this._element.querySelector('.post__image').setAttribute('src',this._link);
         this._element.querySelector('.post__image').setAttribute('alt',this._name);
         this._element.querySelector('.post__name').textContent = this._name;

@@ -5,7 +5,7 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {btnDelete, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
 import Api from './scripts/Api.js';
 
@@ -48,7 +48,17 @@ const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
-const popupWithConfirmation = new PopupWithConfirmation('#popupDelete');
+const popupWithConfirmation = new PopupWithConfirmation((idCard,evt) => {
+
+  api.deleteCard(`${URLCards}/${idCard}`)
+  .then(res => {
+    console.log("🚀 ~ popupWithConfirmation ~ res:", res)
+    const card = document.querySelector(`section[idcard="${idCard}"]`)
+    card.remove();
+  })
+  .catch(error => console.log(`Hubo un error al eliminar la tarjeta `+error))
+  
+},'#popupDelete');
 
 const popupFormEdit = new PopupWithForm((data) => {
 
@@ -104,3 +114,9 @@ popupWithConfirmation.setEventListeners()
 
 validateProfile.enableValidation();
 validatePost.enableValidation();
+
+// btnDelete.addEventListener('click', function() {
+//   console.log("🚀 ~ btnDelete.addEventListener ~ e:", this)
+//   // const idCard = this
+  
+// })

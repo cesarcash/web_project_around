@@ -2,24 +2,27 @@ import Popup from "./Popup.js";
 
 export default class PopupWithConfirmation extends Popup {
 
-    constructor(selectorPopup){
+    constructor(callbackForm,selectorPopup){
         super(selectorPopup)
+        this._callbackForm = callbackForm;
     }
 
-    open(){
+    open(id){
 
         super.open();
-
+        this._idCard = id;
+        
     }
-
+    
     setEventListeners(){
-
+        
         super.setEventListeners();
-
-        this._popup.addEventListener('click', e => {
+        
+        this._popup.addEventListener('click', evt => {
             
-            if(e.target.value){
-                console.log('borra')
+            if(evt.target.value){
+                this._callbackForm(this._idCard,evt)
+                super.close()
             }
             
         })

@@ -13,6 +13,7 @@ export const formProfile = document.querySelector('#formEditProfile');
 export const formPost = document.querySelector('#formNewPost');
 export const btnEdit = document.querySelector('#button__edit');
 export const btnAdd = document.querySelector('#button__add');
+export const btnDelete = document.querySelector('#buttonDelete');
 export const btnPhoto = document.querySelector('.user__picture');
 export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
