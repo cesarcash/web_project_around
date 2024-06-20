@@ -5,7 +5,7 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {btnDelete, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, createNewPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {handleLikeCard, URLCardLike, createCard, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
 import Api from './scripts/Api.js';
 
@@ -20,7 +20,8 @@ const arrCards = api.getInitialCards(URLCards)
 const infoUser = api.getInfoUser(URLUser);
 
 infoUser.then(data => {
-  setInfoUser(data)
+  setInfoUser(data);
+  Card._idUser = data._id;
 })
 .catch(error => console.log(error))
 
@@ -28,7 +29,7 @@ arrCards.then(cards => {
   const cardSection = new Section({
     data: cards,
     renderer: (item) => {
-      const card = new Card(item,'#postTemplate',popupWithImage.open,popupWithConfirmation.open);
+      const card = new Card(item,'#postTemplate',popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
       const newCard = card.generateCard();
       cardSection.addItem(newCard);
     }
@@ -48,11 +49,10 @@ const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
-const popupWithConfirmation = new PopupWithConfirmation((idCard,evt) => {
+const popupWithConfirmation = new PopupWithConfirmation((idCard) => {
 
   api.deleteCard(`${URLCards}/${idCard}`)
   .then(res => {
-    console.log("🚀 ~ popupWithConfirmation ~ res:", res)
     const card = document.querySelector(`section[idcard="${idCard}"]`)
     card.remove();
   })
@@ -75,7 +75,9 @@ const popupFormAdd = new PopupWithForm((data) => {
   const setCard = api.setNewCard(data,URLCards)
 
   setCard.then(res => {
-    createNewPost(data)
+
+    createCard(res,'#postTemplate','#post')
+
   })
   .catch(error => console.log('Hay un error: '+error))
 
@@ -114,9 +116,3 @@ popupWithConfirmation.setEventListeners()
 
 validateProfile.enableValidation();
 validatePost.enableValidation();
-
-// btnDelete.addEventListener('click', function() {
-//   console.log("🚀 ~ btnDelete.addEventListener ~ e:", this)
-//   // const idCard = this
-  
-// })

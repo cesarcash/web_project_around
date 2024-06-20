@@ -73,6 +73,33 @@ export default class Api {
             }
         })
        .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+
+    }
+
+    addLikeCard(url){
+
+        return fetch(url,{
+            method: 'PUT',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            }
+        })
+       .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+
+    }
+
+    removeLikeCard(url){
+
+        return fetch(url,{
+            method: 'DELETE',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            }
+        })
+       .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+
     }
 
 }

@@ -21,7 +21,7 @@ export default class PopupWithConfirmation extends Popup {
         this._popup.addEventListener('click', evt => {
             
             if(evt.target.value){
-                this._callbackForm(this._idCard,evt)
+                this._callbackForm(this._idCard)
                 super.close()
             }
             

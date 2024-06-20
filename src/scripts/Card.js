@@ -1,9 +1,8 @@
-import { _idUser } from "./utils.js";
-
 export default class Card {
 
-    constructor(data,cardSelector,handleCardClick,handleOpenPopup){
-        console.log("🚀 ~ Card ~ constructor ~ data:", data)
+    static _idUser ;
+
+    constructor(data,cardSelector,handleCardClick,handleOpenPopup,handleLikeCard){
         this._name = data.name;
         this._link = data.link;
         this._likes = data.likes;
@@ -12,6 +11,7 @@ export default class Card {
         this._cardSelector = cardSelector;
         this._handleCardClick = handleCardClick;
         this._handleOpenPopup = handleOpenPopup;
+        this._handleLikeCard = handleLikeCard;
     }
 
     _getTemplate(){
@@ -20,25 +20,19 @@ export default class Card {
 
     _setEventListeners(){
 
-        this._element.querySelector('.button_action_like').addEventListener('click', () => {
+        this._element.querySelector('.button_action_like').addEventListener('click', (e) => {
             this._handleLikeClick();
+            this._handleLikeCard(e,this._idCard)
         })
 
         this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
-            
             this._handleOpenPopup(this._idCard)
-            // this._handleDeleteCard(e)
-
         })
 
         this._element.querySelector('.post__image').addEventListener('click', (e) => {
             this._handleCardClick(this._link,this._name)
         })
 
-    }
-    
-    _handleDeleteCard(e){
-        e.target.closest('.post__item').remove();
     }
     
     _handleLikeClick(){
@@ -48,8 +42,9 @@ export default class Card {
     generateCard(){
 
         this._element = this._getTemplate();
+        console.log("🚀 ~ Card ~ generateCard ~ this._element:", this)
         
-        if(this._idUser != _idUser){
+        if(this._idUser != Card._idUser){
             const buttonDelete = this._element.querySelector('.button_action_delete')
             buttonDelete.style.display = 'none';
         }
