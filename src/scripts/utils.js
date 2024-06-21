@@ -51,14 +51,14 @@ export const config = {
     errorClass: "form__input-error_active"
 }
 
-export const createCard = (objData,template,container) => {
+// export const createCard = (objData,template,container) => {
 
-  const postContainer = document.querySelector(container)
-  const newCard = new Card(objData,template,popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
-  const card = newCard.generateCard();
-  postContainer.prepend(card);
+//   const postContainer = document.querySelector(container)
+//   const newCard = new Card(objData,template,popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
+//   const card = newCard.generateCard();
+//   postContainer.prepend(card);
 
-}
+// }
 
 export function setInfoUser({about,name,avatar}){
 

@@ -5,7 +5,7 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {formAvatar, userPhoto, URLAvatar, handleLikeCard, URLCardLike, createCard, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {formAvatar, userPhoto, URLAvatar, handleLikeCard, URLCardLike, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
 import Api from './scripts/Api.js';
 
@@ -51,6 +51,10 @@ const validateAvatar = new FormValidator(config,formAvatar);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
 const popupWithConfirmation = new PopupWithConfirmation((idCard) => {
+  
+  // console.log("🚀 ~ popupWithConfirmation ~ idCard:", idCard)
+  // const card = document.querySelector(`section[idcard="${idCard}"]`)
+  // card.remove();
 
   api.deleteCard(`${URLCards}/${idCard}`)
   .then(res => {
@@ -61,37 +65,58 @@ const popupWithConfirmation = new PopupWithConfirmation((idCard) => {
   
 },'#popupDelete');
 
-const popupFormEdit = new PopupWithForm((data) => {
-
-  api.editInfoUser(data,URLUser)
-  .then(res => {
+const popupFormEdit = new PopupWithForm((element,data) => {
+  
+  const updateProfile = api.editInfoUser(data,URLUser);
+  const btnForm = element.querySelector('.form__button');
+  btnForm.textContent = 'Guardando...';
+  
+  updateProfile.then(res => {
     userInfo.setUserInfo(res.name,res.about)
   })
   .catch(error => console.log(`Aqui es error `+error))
+  .finally(() => {
+    btnForm.textContent = 'Guardar';
+  })
 
 },'#popupEdit');
 
-const popupFormAdd = new PopupWithForm((data) => {
-
+const popupFormAdd = new PopupWithForm((element,data) => {
+  
   const setCard = api.setNewCard(data,URLCards)
+  const btnForm = element.querySelector('.form__button');
+  btnForm.textContent = 'Guardando...';
 
   setCard.then(res => {
 
-    createCard(res,'#postTemplate','#post')
+    // createCard(res,'#postTemplate','#post')
+    const container = document.querySelector(postContainer);
+    const newCard = new Card(res,'#postTemplate',popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
+    const card = newCard.generateCard();
+    container.prepend(card);
 
   })
   .catch(error => console.log('Hay un error: '+error))
+  .finally(() => {
+    btnForm.textContent = 'Crear';
+  })
 
 },'#popupAdd');
 
-const popupFormPhoto = new PopupWithForm((data) => {
+const popupFormPhoto = new PopupWithForm((element,data) => {
   
-  api.editImgUser(URLAvatar,data.avatar)
-  .then(res => {
+  const updateAvatar = api.editImgUser(URLAvatar,data.avatar);
+  const btnForm = element.querySelector('.form__button');
+  btnForm.textContent = 'Guardando...';
+  
+  updateAvatar.then(res => {
     userPhoto.src = res.avatar
     userPhoto.alt = res.name
   })
   .catch(error => console.log(error))
+  .finally(() => {
+    btnForm.textContent = 'Guardar';
+  })
 
 },'#popupPhoto')
 

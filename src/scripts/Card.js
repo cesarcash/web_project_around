@@ -25,7 +25,9 @@ export default class Card {
             this._handleLikeCard(e,this._idCard)
         })
 
-        this._element.querySelector('.button_action_delete').addEventListener('click', (e) => {
+        this._element.querySelector('.button_action_delete').addEventListener('click', () => {
+            // console.log(this._handleOpenPopup)
+            // console.log("🚀 ~ Card ~ this._element.querySelector ~ this._idCard:", this._idCard)
             this._handleOpenPopup(this._idCard)
         })
 
