@@ -5,7 +5,7 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {handleLikeCard, URLCardLike, createCard, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {formAvatar, userPhoto, URLAvatar, handleLikeCard, URLCardLike, createCard, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
 import Api from './scripts/Api.js';
 
@@ -47,6 +47,7 @@ const objUser = {
 
 const userInfo = new UserInfo(objUser);
 const validateProfile = new FormValidator(config,formProfile);
+const validateAvatar = new FormValidator(config,formAvatar);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
 const popupWithConfirmation = new PopupWithConfirmation((idCard) => {
@@ -84,7 +85,14 @@ const popupFormAdd = new PopupWithForm((data) => {
 },'#popupAdd');
 
 const popupFormPhoto = new PopupWithForm((data) => {
-  console.log("🚀 ~ popupFormPhoto ~ data:", data)
+  
+  api.editImgUser(URLAvatar,data.avatar)
+  .then(res => {
+    userPhoto.src = res.avatar
+    userPhoto.alt = res.name
+  })
+  .catch(error => console.log(error))
+
 },'#popupPhoto')
 
 btnEdit.addEventListener('click', function(){
@@ -116,3 +124,4 @@ popupWithConfirmation.setEventListeners()
 
 validateProfile.enableValidation();
 validatePost.enableValidation();
+validateAvatar.enableValidation();

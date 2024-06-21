@@ -42,12 +42,20 @@ export default class Card {
     generateCard(){
 
         this._element = this._getTemplate();
-        console.log("🚀 ~ Card ~ generateCard ~ this._element:", this)
+        console.log("🚀 ~ Card ~ generateCard ~ this:", this)
         
         if(this._idUser != Card._idUser){
             const buttonDelete = this._element.querySelector('.button_action_delete')
             buttonDelete.style.display = 'none';
         }
+
+        this._likes.forEach(likeItem => {
+
+            if(likeItem._id === Card._idUser){
+                this._element.querySelector('.button_action_like').classList.add('button_is_active');
+            }
+
+        })
 
         this._setEventListeners();
         this._element.setAttribute('idCard',this._idCard);

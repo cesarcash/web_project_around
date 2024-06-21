@@ -13,16 +13,20 @@ export const modalEdit = document.querySelector('#popupEdit');
 export const btnClose = document.querySelectorAll('.button_action_close');
 export const formProfile = document.querySelector('#formEditProfile');
 export const formPost = document.querySelector('#formNewPost');
+export const formAvatar = document.querySelector('#formEditPhoto');
 export const btnEdit = document.querySelector('#button__edit');
 export const btnAdd = document.querySelector('#button__add');
 export const btnPhoto = document.querySelector('.user__picture');
 export const inputName = document.querySelector('#name-input');
 export const inputAbout = document.querySelector('#about-input');
+export const userPhoto = document.querySelector('.user__photo');
 export const postContainer = '#post';
 export const token = 'aeb303a7-85a3-41cc-b9b3-71f2eddd73ac';
 export const URLUser = URLServer+group+'users/me';
 export const URLCards = URLServer+group+'cards';
 export const URLCardLike = URLServer+group+'cards/likes';
+export const URLAvatar = URLServer+group+'users/me/avatar';
+
 const popupWithImage = new PopupWithImage('#popupImage');
 const popupWithConfirmation = new PopupWithConfirmation('#popupDelete');
 
@@ -60,28 +64,40 @@ export function setInfoUser({about,name,avatar}){
 
   document.querySelector('#userName').textContent = name
   document.querySelector('#userDescription').textContent = about
-  document.querySelector('.user__photo').src = avatar
-  document.querySelector('.user__photo').alt = name
+  userPhoto.src = avatar
+  userPhoto.alt = name
 
 }
 
 export function handleLikeCard(evt,idCard){
   
   const btnLike = evt.target;
+
   if(btnLike.classList.contains('button_is_active')){
-    console.log('le ha gustado')
+
     api.addLikeCard(URLCardLike+'/'+idCard)
     .then(res => {
-      console.log("🚀 ~ handleLikeCard ~ res:", res)
+      countLikes(btnLike,res)
     })
     .catch(error => console.log(error))
+
   }else{
-    console.log('no le ha gustado')
+
     api.removeLikeCard(URLCardLike+'/'+idCard)
     .then(res => {
-      console.log("🚀 ~ handleLikeCard ~ res:", res)
+      countLikes(btnLike,res)
     })
     .catch(error => console.log(error))
+
   }
+
+}
+
+function countLikes(element,data){
+
+  const container = element.nextElementSibling;
+  const likes = data.likes.length;
+
+  container.textContent = likes;
 
 }

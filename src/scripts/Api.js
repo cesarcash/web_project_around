@@ -102,4 +102,20 @@ export default class Api {
 
     }
 
+    editImgUser(url,avatar){
+
+        return fetch(url, {
+            method: 'PATCH',
+            headers: {
+                authorization: this._headers.authorization,
+                'Content-Type': this._headers.type
+            },
+            body: JSON.stringify({
+                avatar: avatar
+            })
+        })
+        .then(res => res.ok? res.json() : Promise.reject(`Error: ${res.status} `) )
+
+    }
+
 }
