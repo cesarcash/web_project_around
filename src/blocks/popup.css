@@ -17,6 +17,24 @@
     box-sizing: border-box;
 }
 
+.popup__button {
+    display: block;
+    width: 100%;
+    border: 0;
+    padding: 14px 0;
+    margin-top: 16px;
+    background-color: rgba(0, 0, 0, 1);
+    font-family: 'Inter Regular';
+    font-size: 14px;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 2px;
+}
+
+.popup__button:hover {
+    background-color: rgba(0, 0, 0, .8);
+}
+
 .popup__delete_title {
     font-family: 'Inter Black';
     font-size: 24px;
