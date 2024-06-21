@@ -1,7 +1,4 @@
-import Card from "./Card.js";
 import Api from "./Api.js";
-import PopupWithConfirmation from "./PopupWithConfirmation.js";
-import PopupWithImage from "./PopupWithImage.js";
 
 const group = 'web_es_11/';
 const URLServer = `https://around.nomoreparties.co/v1/`;
@@ -27,9 +24,6 @@ export const URLCards = URLServer+group+'cards';
 export const URLCardLike = URLServer+group+'cards/likes';
 export const URLAvatar = URLServer+group+'users/me/avatar';
 
-const popupWithImage = new PopupWithImage('#popupImage');
-const popupWithConfirmation = new PopupWithConfirmation('#popupDelete');
-
 export const configHeaders = {
   token,
   type: 'application/json'
@@ -50,15 +44,6 @@ export const config = {
     inputErrorClass: "form__input_type_error",
     errorClass: "form__input-error_active"
 }
-
-// export const createCard = (objData,template,container) => {
-
-//   const postContainer = document.querySelector(container)
-//   const newCard = new Card(objData,template,popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
-//   const card = newCard.generateCard();
-//   postContainer.prepend(card);
-
-// }
 
 export function setInfoUser({about,name,avatar}){
 

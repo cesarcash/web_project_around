@@ -8,9 +8,6 @@ export default class PopupWithConfirmation extends Popup {
     }
 
     open(id){
-        console.log("🚀 ~ PopupWithConfirmation ~ open ~ id:", id)
-        console.log("🚀 ~ PopupWithConfirmation ~ open ~ this:", this)
-        console.log("🚀 ~ PopupWithConfirmation ~ open ~ this._idCard:", this._idCard)
 
         super.open();
         this._idCard = id;

@@ -26,8 +26,6 @@ export default class Card {
         })
 
         this._element.querySelector('.button_action_delete').addEventListener('click', () => {
-            // console.log(this._handleOpenPopup)
-            // console.log("🚀 ~ Card ~ this._element.querySelector ~ this._idCard:", this._idCard)
             this._handleOpenPopup(this._idCard)
         })
 
@@ -44,7 +42,6 @@ export default class Card {
     generateCard(){
 
         this._element = this._getTemplate();
-        console.log("🚀 ~ Card ~ generateCard ~ this:", this)
         
         if(this._idUser != Card._idUser){
             const buttonDelete = this._element.querySelector('.button_action_delete')

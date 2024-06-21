@@ -5,7 +5,7 @@ import PopupWithForm from './scripts/PopupWithForm.js';
 import PopupWithConfirmation from './scripts/PopupWithConfirmation.js';
 import PopupWithImage from './scripts/PopupWithImage.js';
 import UserInfo from './scripts/UserInfo.js';
-import {formAvatar, userPhoto, URLAvatar, handleLikeCard, URLCardLike, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
+import {formAvatar, userPhoto, URLAvatar, handleLikeCard, setInfoUser, configHeaders, btnPhoto, URLUser, URLCards, postContainer, btnEdit, formProfile, btnAdd, formPost, config, inputName, inputAbout} from "./scripts/utils.js";
 import FormValidator from './scripts/FormValidator.js';
 import Api from './scripts/Api.js';
 
@@ -51,10 +51,6 @@ const validateAvatar = new FormValidator(config,formAvatar);
 const validatePost = new FormValidator(config,formPost);
 const popupWithImage = new PopupWithImage('#popupImage');
 const popupWithConfirmation = new PopupWithConfirmation((idCard) => {
-  
-  // console.log("🚀 ~ popupWithConfirmation ~ idCard:", idCard)
-  // const card = document.querySelector(`section[idcard="${idCard}"]`)
-  // card.remove();
 
   api.deleteCard(`${URLCards}/${idCard}`)
   .then(res => {
@@ -89,7 +85,6 @@ const popupFormAdd = new PopupWithForm((element,data) => {
 
   setCard.then(res => {
 
-    // createCard(res,'#postTemplate','#post')
     const container = document.querySelector(postContainer);
     const newCard = new Card(res,'#postTemplate',popupWithImage.open,popupWithConfirmation.open,handleLikeCard);
     const card = newCard.generateCard();
