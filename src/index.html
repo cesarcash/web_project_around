@@ -77,28 +77,30 @@
         <div class="page__container">
             <header class="header">
                 <img src="<%=require('./images/logo__white.png')%>" alt="Alrededor del mundo" class="header__logo">
-            </header>            
-            <div class="user">
-                <div class="user__picture">
-                    <div class="user__picture-edit"></div>
-                    <img class="user__photo">
-                </div>
-                <div class="user__data">
-                    <div class="user__data-row">
-                        <h1 class="user__name-profile" id="userName"></h1>
-                        <button id="button__edit" class="button button_action_edit" aria-label="Editar perfil">
-                            <img src="<%=require('./images/icon__edit.svg')%>" alt="Editar perfil" class="button__edit-image">
+            </header>
+            <main>
+                <section class="user">
+                    <div class="user__picture">
+                        <div class="user__picture-edit"></div>
+                        <img class="user__photo">
+                    </div>
+                    <div class="user__data">
+                        <div class="user__data-row">
+                            <h1 class="user__name-profile" id="userName"></h1>
+                            <button id="button__edit" class="button button_action_edit" aria-label="Editar perfil">
+                                <img src="<%=require('./images/icon__edit.svg')%>" alt="Editar perfil" class="button__edit-image">
+                            </button>
+                        </div>
+                        <p class="user__name-description" id="userDescription"></p>
+                    </div>
+                    <div class="user__action">
+                        <button id="button__add" class="button button_action_add" aria-label="Añadir post">
+                            <img src="<%=require('./images/add.png')%>" alt="Añadir post" class="button__add-image">
                         </button>
                     </div>
-                    <p class="user__name-description" id="userDescription"></p>
-                </div>
-                <div class="user__action">
-                    <button id="button__add" class="button button_action_add" aria-label="Añadir post">
-                        <img src="<%=require('./images/add.png')%>" alt="Añadir post" class="button__add-image">
-                    </button>
-                </div>
-            </div>
-            <main class="post" id="post"></main>
+                </section>
+                <section class="post" id="post"></section>
+            </main>
             <footer class="footer">
                 <p class="footer__author">&copy; 2024 @cesarcash</p>
             </footer>
